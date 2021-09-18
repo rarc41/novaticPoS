@@ -49,3 +49,6 @@ const Robin = {
 ---
 
 ⭐️
+
+Soy Cristian Espinosa, tengo 23 años y vivo en Bogotá.
+Me apasiona la programacion y la tecnologia como tal y tengo el rol de analista.
