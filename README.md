@@ -1,11 +1,22 @@
 # novaticPoS
+
 Sistema de Punto de Venta usando el stack de MERN, proyecto del 3er ciclo del programa MisionTIC2021
 
-## Presentacion del equipo del proyecto 
+### Integrantes:
+
+Soy Elias Avilez tengo 22 años, Vivo en Medellín, me gusta mucho la programación y espero aportar mucho para sacar este proyecto adelante.
+
+Soy Alejandra Gallego, tecnóloga en programación, tengo como objetivo ganar muchos conocimientos y seguir creciendo profesionalmente. Me gusta aparte de la programación, leer y el café.
+
+Soy Sara Orozco Narvaez, tengo 22 años, Vivo en Medellín, actualmente desempeño el rol de scrum master en el equipo,
+me apasiona la tecnología y me gusta estar en constante aprendizaje.
+
 
 ### Hola, soy Robin👋
 
-![Robin Romero](https://ibb.co/nB3sfMr)
+tengo 27 años, Vivo en Puerto Libertador, soy Ingeniero quimico entusiasta de la tecnologia. me gusta leer, ver anime, y los veidojuegos,
+
+![Robin Romero](https://user-images.githubusercontent.com/69741658/133867984-c4837588-0dfd-4c14-a19d-741e037075e6.png)
 
 
 <!--
@@ -26,7 +37,7 @@ Here are some ideas to get you started:
 <p><em>Tripulante de <a href="https://www.misiontic2022.gov.co/portal/"> MisionTic 2022 </a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></br>Estudiante en <a href="https://platzi.com/home"> YouTube :V </a><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> 
 </em></p>
 
-[![Linkedin: thaianebraga](https://img.shields.io/badge/-eliablopez-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/robin-angel-romero-cordero/)](https://www.linkedin.com/in/robin-angel-romero-cordero/)
+[![Linkedin: thaianebraga](https://img.shields.io/badge/-robinromero-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/robin-angel-romero-cordero/)](https://www.linkedin.com/in/robin-angel-romero-cordero/)
 
 ```javascript
 const Robin = {
@@ -38,3 +49,6 @@ const Robin = {
 ---
 
 ⭐️
+
+Soy Cristian Espinosa, tengo 23 años y vivo en Bogotá.
+Me apasiona la programacion y la tecnologia como tal y tengo el rol de analista.
