@@ -4,7 +4,7 @@ import Input from './components/common/Input'
 function App() {
   return (
     <div className="App">
-      <Input></Input>
+      <Input label='Nombre' type='text'></Input>
     </div>
   );
 }
