@@ -6,6 +6,8 @@
     --neutral-blue: #525993;
     --light-blue: #938be3;
     --lyla: #e6c3ff;
+    --text-contrast-blue: #ccd3e6;
+    --contrast-blue: #89abe6;
   }
   
   html {
@@ -52,4 +54,12 @@
     height: 100%;
     width: 100%;
     background-color: rgba(227, 218, 218, 0.3);
+  }
+
+  .Main {
+    background-color: var(--lyla);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
