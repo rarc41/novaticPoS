@@ -1,0 +1,26 @@
+:root {
+    --black: #000015;
+    --dark-blue: #212c4d;
+    --neutral-blue: #525993;
+    --light-blue: #938be3;
+    --lyla: #e6c3ff;
+  }
+
+table{
+    margin: auto;
+    border-collapse: collapse;
+    width: 100rem;
+    height: 20rem;
+    text-align: left;
+    padding: 3rem;
+    font-size: 15px;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--neutral-blue);
+    color: white;
+}
