@@ -1,0 +1,6 @@
+.formulario {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); */
+  width: 65rem;
+  padding-top: 2rem;
+}

@@ -1,15 +1,19 @@
 import React from 'react';
-import Input from './components/common/Input'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PruebasTable from './components/pruebas/PruebasTable';
-import Login from './components/login/Login'
+import PruebasForm from './components/pruebas/PruebasForm';
+import Login from './components/login/Login';
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-      {/* <Input label='Nombre' type='text'></Input>
-      <PruebasTable></PruebasTable> */}
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Login}></Route>
+        <Route exact path="/tablas" component={PruebasTable}></Route>
+        <Route exact path="/formulario" component={PruebasForm}></Route>
+        <Route component={Login}></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
