@@ -1,0 +1,14 @@
+@import url('../index.css');
+.buttonBox button{
+    width: 10rem;
+    height: 4rem;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-width: 0;
+}  
+
+.buttonBox button:hover{
+    background-color :var(--light-blue);
+    color: white;
+}

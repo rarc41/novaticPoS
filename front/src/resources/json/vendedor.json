@@ -1,0 +1,41 @@
+[
+    {
+    "required": "true",
+    "type": "text",
+    "name": "name",
+    "label": "Nombre",
+    "size": "12"
+  },
+  {
+    "type": "number",
+    "name": "value",
+    "label": "Valor venta",
+    "size": "12"
+  },
+  {
+    "type": "date",
+    "name": "date",
+    "label": "Fecha venta",
+    "size": "12"
+  },
+  {
+    "name": "status",
+    "options": [
+      {
+        "name": "enproceso",
+        "label": "En proceso"
+      },
+      {
+        "name": "entregada",
+        "label": "Entregada"
+      },
+      {
+        "name": "cancelada",
+        "label": "Cancelada"
+      }
+    ],
+    "label": "Estado venta",
+    "type": "select_one",
+    "size": "12"
+  }
+]
