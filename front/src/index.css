@@ -64,8 +64,24 @@
     position: relative;
     background-color: var(--lyla);
     display: flex;
-   /* flex-direction: column; */
+   flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
     min-height: 100vh;
+  }
+
+  .Module{
+    width: 100%;
+    height: 100%;
+    background-color: #FEFCEC;
+    overflow-y: scroll;
+    
+
+  }
+
+  .Module-container{
+    /* overflow-y: scroll; */
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
   }

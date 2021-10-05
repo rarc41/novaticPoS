@@ -1,0 +1,10 @@
+.table-responsive{
+    max-width: 75%;
+    border: 1px solid var(--neutral-blue);
+    overflow-y: scroll;
+    /* padding: 15% */
+}
+
+.table-product {
+    font-size: 1.7rem;
+}
