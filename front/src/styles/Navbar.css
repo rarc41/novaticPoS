@@ -19,7 +19,7 @@
   transition: 0.5s;
 }
 
-.contaiiner-nav .navigation.active {
+.container-nav .navigation.active {
   width: 300px;
 }
 .container-nav .navigation ul {
@@ -79,7 +79,7 @@
 .toggle {
   position: absolute;
   top: calc(50% - 20px);
-  left: 5.1%;
+  left: 71.1%;
   width: 40px;
   height: 40px;
   background-color: var(--light-blue);
@@ -111,5 +111,5 @@
 }
 
 .toggle.active {
-  left: 21.3%;
+  left: 92.3%;
 }
