@@ -1,4 +1,4 @@
-.container {
+.container-nav {
   position: fixed;
   /* left: 1%; */
   height: 100%;
@@ -6,7 +6,7 @@
    flex-direction: column;
 }
 
-.container .navigation {
+.container-nav .navigation {
   /* position: relative; */
   display: flex;
   align-items: center;
@@ -19,10 +19,10 @@
   transition: 0.5s;
 }
 
-.container .navigation.active {
+.contaiiner-nav .navigation.active {
   width: 300px;
 }
-.container .navigation ul {
+.container-nav .navigation ul {
   width: 100%;
   padding: 0;
   height: 100%;
@@ -31,18 +31,18 @@
   justify-content: space-evenly;
 }
 
-.container .navigation ul li {
+.container-nav .navigation ul li {
   position: relative;
   list-style: none;
   width: 100%;
   transition: 0.5s;
 }
-.container .navigation ul li:hover {
+.container-nav .navigation ul li:hover {
   transition: 0.5s;
   background-color: var(--dark-blue);
 }
 
-.container .navigation ul li a {
+.container-nav .navigation ul li a {
   position: relative;
   width: 100%;
   display: flex;
@@ -52,7 +52,7 @@
   align-items: center;
 }
 
-.container .navigation ul li a .icon {
+.container-nav .navigation ul li a .icon {
   position: relative;
   display: flex;
   min-width: 80px;
@@ -63,11 +63,11 @@
   justify-content: center;
 }
 
-.container .navigation ul li a .icon .fas {
+.container-nav .navigation ul li a .icon .fas {
   font-size: 3.4rem;
 }
 
-.container .navigation ul li a .title {
+.container-nav .navigation ul li a .title {
   position: relative;
   display: block;
   line-height: 60px;
@@ -79,7 +79,7 @@
 .toggle {
   position: absolute;
   top: calc(50% - 20px);
-  left: 75.1%;
+  left: 5.1%;
   width: 40px;
   height: 40px;
   background-color: var(--light-blue);
@@ -111,5 +111,5 @@
 }
 
 .toggle.active {
-  left: 92.3%;
+  left: 21.3%;
 }

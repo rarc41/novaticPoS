@@ -114,7 +114,7 @@ const Productos = () => {
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr >
+            <tr key={product.id}>
               <td>{product.id}</td>
               {/* <td>
                 <img src={product.img} alt={product.name} />

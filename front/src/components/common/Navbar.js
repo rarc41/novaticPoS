@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import '../../styles/Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({changeSection}) => {
   const options = [
-    { name: "vendores", icon: "fas fa-id-card" },
+    { name: "vendedores", icon: "fas fa-id-card" },
     { name: "productos", icon: "fas fa-store" },
-    { name: "Ventas", icon: "fas fa-chart-line" },
-    { name: "Admin", icon: "fas fa-users-cog" },
+    { name: "ventas", icon: "fas fa-chart-line" },
+    { name: "admin", icon: "fas fa-users-cog" },
     { name: "Sign out", icon: "fas fa-sign-out-alt" },
   ];
 
@@ -16,11 +16,11 @@ const Navbar = () => {
       setActive(!active)
   }
   return (
-    <div className="container">
+    <div className="container-nav">
       <div className={`navigation ${active?'active':''}`}>
         <ul>
           {options.map((option) => (
-            <li>
+            <li onClick={()=>changeSection(option.name)}>
               <a href="#">
                 <span class="icon">
                   <i class={option.icon}></i>

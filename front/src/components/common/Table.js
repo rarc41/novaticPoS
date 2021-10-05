@@ -11,6 +11,9 @@ const Table = ({head, content}) => {
                 {content.map(row => 
                 <tr>
                     {head.map(data => <td>{row[data.value]}</td>)}
+                    <td>
+                        boton
+                    </td>
                </tr>
                )}
             </table>

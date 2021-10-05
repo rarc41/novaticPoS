@@ -19,6 +19,22 @@
     "size": "12"
   },
   {
+    "type": "number",
+    "name": "value",
+    "label": "Valor venta",
+    "size": "12"
+  },  {
+    "type": "number",
+    "name": "value",
+    "label": "Valor venta",
+    "size": "12"
+  },  {
+    "type": "number",
+    "name": "value",
+    "label": "Valor venta",
+    "size": "12"
+  },
+  {
     "name": "status",
     "options": [
       {

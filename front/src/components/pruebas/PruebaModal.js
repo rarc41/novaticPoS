@@ -10,20 +10,20 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-const PruebasTable = () => {
+const PruebasTable = ({isOpen, handleOpen}) => {
  
-  const [modalActualizar, setModalActualizar] = React.useState(true);
+  // const [modalActualizar, setModalActualizar] = React.useState(true);
 
-  const cerrarModalActualizar = () => {
-    setModalActualizar(false);
-  };
+  // const cerrarModalActualizar = () => {
+  //   setModalActualizar(false);
+  // };
 
-  const mostrarModalActualizar = () => {
-    setModalActualizar(true);
-  };
+  // const mostrarModalActualizar = () => {
+  //   setModalActualizar(true);
+  // };
 
   return (
-    <Modal isOpen={modalActualizar}>
+    <Modal isOpen={isOpen}>
         <ModalHeader>
           <div><h3>Actualizar Usuario </h3></div>
         </ModalHeader>
@@ -42,7 +42,7 @@ const PruebasTable = () => {
           </Button>
           <Button
             className="btn btn-danger"
-            onClick={cerrarModalActualizar}
+            onClick={handleOpen}
           >
             Cancelar
           </Button>
