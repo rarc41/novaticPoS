@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Button from './common/Button';
 import PruebasTable from './pruebas/PruebasTable';
-import PruebaModal from './pruebas/PruebaModal';
+import PruebaModal from './common/Modal';
 import Modal from './common/Modal';
 import form from '../resources/json/prueba.json';
 
