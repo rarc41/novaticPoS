@@ -62,7 +62,7 @@
 
   .Main {
     position: relative;
-    background-color: var(--lyla);
+    background-color: white;
     display: flex;
    /* flex-direction: column; */
     /* justify-content: center; */

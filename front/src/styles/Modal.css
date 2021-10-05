@@ -1,0 +1,36 @@
+.button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.container-buttons{
+  display: inline-flex;
+  margin-left: 25rem;
+}
+
+h3{
+  text-align: left;
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
+
+.line-title{
+  width: 45rem;
+  height: 0px;
+  size: 1;
+  border-color: var(--light-blue);
+}
+
+.modal-card {
+  margin: 40rem;
+  display: block;
+  margin-top: 10rem;
+  width: 50rem;
+  height: 45rem;
+  background-color: white;
+  border-radius: 1rem;
+  filter: drop-shadow(5px 5px 5px var(--light-blue));
+}
