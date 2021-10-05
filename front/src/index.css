@@ -1,5 +1,9 @@
 /* globales */
 
+#root {
+  height: 100vh;
+}
+
 :root {
     --black: #000015;
     --dark-blue: #212c4d;
@@ -57,9 +61,11 @@
   }
 
   .Main {
+    position: relative;
     background-color: var(--lyla);
     display: flex;
-    justify-content: center;
-    align-items: center;
+   /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
     min-height: 100vh;
   }

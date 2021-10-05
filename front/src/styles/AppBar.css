@@ -1,0 +1,9 @@
+.AppBar{
+    /* position: absolute; */
+    /* top: 0; */
+    width:100%;
+    height: 10%;
+    background-color: var(--light-blue);
+    /* z-index: 1; */
+    /* top: 0; */
+}
