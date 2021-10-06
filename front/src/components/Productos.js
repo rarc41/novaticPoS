@@ -100,13 +100,15 @@ const Productos = () => {
       img: "http://dummyimage.com/118x100.png/cc0000/ffffff",
     },
   ];
+
+  const headers = ['nombre', 'descripcion', 'stock', 'precio']
   return (
     <div className="Module Module-container">
     <div className="table-responsive">
       <table className="table-product">
         <thead className="fixed">
           <tr>
-            {Object.keys(products[0]).map((field) => (
+            {headers.map((field) => (
               <th>{field}</th>
             ))}
             <th>Actions</th>
@@ -115,7 +117,7 @@ const Productos = () => {
         <tbody>
           {products.map((product) => (
             <tr key={product.id}>
-              <td>{product.id}</td>
+              {/* <td>{product.id}</td> */}
               {/* <td>
                 <img src={product.img} alt={product.name} />
               </td> */}
@@ -123,6 +125,13 @@ const Productos = () => {
               <td>{product.descripcion}</td>
               <td>{product.price}</td>
               <td>{product.stock}</td>
+              <td>
+                <span class='action_btn'>
+                  <a href='#'>Edit</a>
+                  <a href='#'>Remove</a>
+
+                </span>
+              </td>
             </tr>
           ))}
         </tbody>

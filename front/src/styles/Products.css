@@ -1,10 +1,66 @@
 .table-responsive{
-    max-width: 75%;
+    /* max-width: 75%; */
+    width: 64%;
     border: 1px solid var(--neutral-blue);
     overflow-y: scroll;
+    height:fit-content;
     /* padding: 15% */
+    overflow-y: hidden;
+    border-radius: 1rem;
 }
 
 .table-product {
     font-size: 1.7rem;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.table-responsive table>thead{
+    background-color: var(--neutral-blue);
+    text-align: center;
+}
+
+.table-responsive table>thead th{
+    padding: 15px
+}
+
+.table-product th,
+.table-product td{
+border: 1px solid  var(--light-blue);
+}
+
+.table-product>tbody>tr>td{
+
+}
+
+.action_btn{
+    display: flex;
+    justify-content: center;
+    gap: 1rem
+}
+.action_btn>a{
+    text-decoration: none;
+    color: var(--light-blue);
+    border: 2.5px solid var(--neutral-blue);
+    background-color:white;
+    display: inline-block;
+    padding: 7px 20px;
+    font-weight: bold;
+    border-radius:4px;
+    transition: 0.3s ease-in-out;
+}
+
+.action_btn>a:nth-child(1){
+    border-color: var(--light-blue);
+}
+.action_btn>a:nth-child(2){
+    border-color: red;
+}
+
+.action_btn>a:hover{
+    box-shadow: 0 3px 8px black;
+}
+
+.table-product>tbody>tr{
+    background-color:var(--text-contrast-blue);
 }
