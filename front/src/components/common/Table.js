@@ -9,12 +9,16 @@ const Table = ({head, content}) => {
                 <tr>
                     {head.map(data => <th>{data.name}</th>)}
                     <th></th>
+                    <th></th>
                 </tr>
                 {content.map(row => 
                 <tr>
                     {head.map(data => <td>{row[data.value]}</td>)}
                     <td>
-                        <Button color="btn btn-success">Actualizar <i class="far fa-edit"></i></Button>
+                        <tr><Button color="btn btn-success">Actualizar <i class="far fa-edit"></i></Button></tr>
+                    </td>
+                    <td>
+                        <tr><Button color="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></Button></tr>
                     </td>
                </tr>
                )}

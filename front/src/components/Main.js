@@ -4,6 +4,7 @@ import Navbar from "./common/Navbar";
 import Productos from './Productos'
 import Usuarios from "./Usuarios";
 import Vendedores from './Vendedores'
+import Login from './login/Login'
 
 const Main = () => {
   const [section, setSection] = useState("productos");
@@ -32,6 +33,10 @@ const Main = () => {
             <Usuarios>
 
             </Usuarios>
+          )}
+
+          {section==='login' && (
+           <Login></Login>
           )}
 
       </div>

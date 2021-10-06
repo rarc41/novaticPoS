@@ -131,6 +131,11 @@ text-align: center;
     text-decoration: none;
 }
 
+.container-inputs .btnNew{
+    margin-left: 1rem;
+    padding: 1rem;
+}
+
 
 
 

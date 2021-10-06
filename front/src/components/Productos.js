@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Products.css";
+import { Button } from "reactstrap";
 
 const Productos = () => {
   const products = [
@@ -115,6 +116,7 @@ const Productos = () => {
             <i class="fas fa-search"></i>
           </a>
         </div>
+        <Button className="btnNew" color="btn btn-primary">Nuevo Producto <i class="fas fa-plus-circle"></i></Button>
       </div>
 
       <div className="table-responsive">
