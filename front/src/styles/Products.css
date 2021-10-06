@@ -30,7 +30,7 @@ border: 1px solid  var(--light-blue);
 }
 
 .table-product>tbody>tr>td{
-
+text-align: center;
 }
 
 .action_btn{
@@ -61,6 +61,6 @@ border: 1px solid  var(--light-blue);
     box-shadow: 0 3px 8px black;
 }
 
-.table-product>tbody>tr{
+.table-product>tbody>tr:hover{
     background-color:var(--text-contrast-blue);
 }
