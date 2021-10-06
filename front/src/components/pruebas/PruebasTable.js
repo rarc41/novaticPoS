@@ -8,6 +8,8 @@ const headers = [
   { name: 'Fecha', value: 'date' },
 ];
 
+const headers_test = ['nombre', 'especialidad', 'telefono', 'fecha']
+
 const values = [
   { name: 'Alejandra', speciality: 'css', phone: '5677848', date: '16 de agosto'},
   { name: 'Elias', speciality: 'react', phone: '7958540',  date: '16 de agosto' },
@@ -16,7 +18,7 @@ const values = [
 
 function PruebasTable() {
   return <div>
-      <Table head= {headers} content={values}></Table>
+      <Table headers={headers_test} data={values}></Table>
   </div>;
 }
 

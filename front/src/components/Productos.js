@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/Products.css";
+import Table from "./common/Table"
+import ToolBar from "./common/ToolBar";
 
 const Productos = () => {
   const products = [
@@ -100,55 +102,15 @@ const Productos = () => {
       img: "http://dummyimage.com/118x100.png/cc0000/ffffff",
     },
   ];
-
   const headers = ["nombre", "descripcion", "stock", "precio"];
+
+
   return (
     <div className="Module Module-container product-section">
-      <div className="container-inputs">
-        <div className="search-box">
-          <input
-            className="search-txt"
-            type="text"
-            placeholder="Excribe para buscar"
-          ></input>
-          <a className="search-btn" href="#">
-            <i class="fas fa-search"></i>
-          </a>
-        </div>
-      </div>
 
-      <div className="table-responsive">
-        <table className="table-product">
-          <thead className="fixed">
-            <tr>
-              {headers.map((field) => (
-                <th>{field}</th>
-              ))}
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                {/* <td>{product.id}</td> */}
-                {/* <td>
-                <img src={product.img} alt={product.name} />
-              </td> */}
-                <td>{product.name}</td>
-                <td>{product.descripcion}</td>
-                <td>{product.price}</td>
-                <td>{product.stock}</td>
-                <td>
-                  <span class="action_btn">
-                    <a href="#">Edit</a>
-                    <a href="#">Remove</a>
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+
+      <ToolBar></ToolBar>
+      <Table headers={headers} data={products}></Table>
     </div>
   );
 };

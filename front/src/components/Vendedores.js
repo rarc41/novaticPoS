@@ -3,6 +3,7 @@ import Button from './common/Button';
 import PruebasTable from './pruebas/PruebasTable';
 import PruebaModal from './common/Modal';
 import Search from './common/Search';
+import Table from './common/Table';
 
 const Vendedores = () => {
 
