@@ -3,7 +3,6 @@ import AppBar from "./common/AppBar";
 import Navbar from "./common/Navbar";
 import Productos from './Productos'
 import Usuarios from "./Usuarios";
-import Vendedores from './Vendedores'
 import Login from './login/Login'
 import Ventas from './Ventas';
 
@@ -22,7 +21,6 @@ const Main = () => {
       <div className="Module">
         {section === 'productos' && <Productos></Productos>}
         {section === 'ventas' && <Ventas></Ventas>}
-        {section === 'vendedores' && <Vendedores></Vendedores>}
         {section === 'admin' && <Usuarios></Usuarios>}
         {section==='login' && (
           <Login></Login>
