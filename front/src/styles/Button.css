@@ -1,10 +1,16 @@
 @import url('../index.css');
+.buttonBox{
+    position: relative;
+    left: 100rem;
+    bottom: 28rem;
+    width: 10rem;
+    height: 3rem;
+}
+
 .buttonBox button{
     width: 10rem;
-    height: 4rem;
+    height: 10rem;
     border-radius: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
     border-width: 0;
 }  
 

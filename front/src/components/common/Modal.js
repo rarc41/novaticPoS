@@ -1,5 +1,4 @@
 import React from 'react';
-import formulario from '../../resources/json/prueba.json';
 import  Form  from './Form';
 import {
   Button,
@@ -10,18 +9,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-const PruebasTable = ({isOpen, handleOpen}) => {
- 
-  // const [modalActualizar, setModalActualizar] = React.useState(true);
-
-  // const cerrarModalActualizar = () => {
-  //   setModalActualizar(false);
-  // };
-
-  // const mostrarModalActualizar = () => {
-  //   setModalActualizar(true);
-  // };
-
+const PruebasTable = ({isOpen, handleOpen, formulario}) => {
   return (
     <Modal isOpen={isOpen}>
         <ModalHeader>

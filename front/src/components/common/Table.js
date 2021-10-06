@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'reactstrap';
 import '../../styles/Table.css';
 
 const Table = ({head, content}) => {
@@ -7,12 +8,13 @@ const Table = ({head, content}) => {
             <table>
                 <tr>
                     {head.map(data => <th>{data.name}</th>)}
+                    <th></th>
                 </tr>
                 {content.map(row => 
                 <tr>
                     {head.map(data => <td>{row[data.value]}</td>)}
                     <td>
-                        boton
+                        <Button color="btn btn-success">Actualizar <i class="far fa-edit"></i></Button>
                     </td>
                </tr>
                )}

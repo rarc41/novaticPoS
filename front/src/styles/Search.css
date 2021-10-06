@@ -1,0 +1,16 @@
+.search-container{
+    position: absolute;
+    left: 95rem;
+    bottom: 51rem;
+    display: inline-flex;
+}
+
+.input-search{
+    height: 3rem;
+}
+
+.search-container i{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}

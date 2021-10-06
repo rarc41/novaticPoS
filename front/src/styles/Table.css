@@ -18,9 +18,11 @@ table{
 
 th, td {
     border-bottom: 1px solid #ddd;
+    height: 5rem;
 }
 
 th {
     background-color: var(--neutral-blue);
     color: white;
+
 }

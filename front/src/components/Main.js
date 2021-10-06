@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AppBar from "./common/AppBar";
 import Navbar from "./common/Navbar";
 import Productos from './Productos'
+import Usuarios from "./Usuarios";
 import Vendedores from './Vendedores'
 
 const Main = () => {
@@ -26,6 +27,11 @@ const Main = () => {
             <Vendedores>
 
             </Vendedores>
+          )}
+          {section==='admin' && (
+            <Usuarios>
+
+            </Usuarios>
           )}
 
       </div>
