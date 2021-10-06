@@ -29,14 +29,6 @@ const Vendedores = () => {
 
   return (
     <div className="Module Module-container">
-      {/* <Search label={"Usuario"}></Search>
-      <Button label={'Nuevo Vendedor'} name={'btn-create'}
-       icon={'fas fa-id-card'} onClick={handleModalOpen}></Button>
-      <PruebasTable></PruebasTable>
-      {modalForm && (
-        <PruebaModal isOpen={modalForm} handleOpen={handleModalOpen}/>
-      )} */}
-
       <div className="Module Module-container product-section">
         <ToolBar></ToolBar>
         <Table headers={headers_test} data={values}></Table>

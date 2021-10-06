@@ -107,8 +107,6 @@ const Productos = () => {
 
   return (
     <div className="Module Module-container product-section">
-
-
       <ToolBar></ToolBar>
       <Table headers={headers} data={products}></Table>
     </div>
