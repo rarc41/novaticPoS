@@ -8,23 +8,22 @@ const Table = ({ headers, data }) => {
       <table className="table-main">
         <thead className="fixed">
           <tr>
-            {headers.map((field) => (
-              <th>{field}</th>
-            ))}
+            {headers.map((field) =>
+              field !== "id" && field !== "client_id" ? <th>{field}</th> : ""
+            )}
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {data.map((element) => (
-              
             <tr key={element.id}>
-                {Object.keys(element).map((key) => (
-                    
-                    (key!=='id' && key!=='img')?
-                    <td>{element[key]}</td>
-                    :
-                    ''
-                ))}
+              {Object.keys(element).map((key) =>
+                key !== "id" && key !== "img" && key !== "client_id" ? (
+                  <td>{element[key]}</td>
+                ) : (
+                  ""
+                )
+              )}
               {/* <td>{element.name}</td>
               <td>{element.descripcion}</td>
               <td>{element.price}</td>

@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Products.css";
+import BtnMaterial from "./common/BtnMaterial";
 import Table from "./common/Table"
 import ToolBar from "./common/ToolBar";
 
@@ -107,7 +108,9 @@ const Productos = () => {
 
   return (
     <div className="Module Module-container product-section">
-      <ToolBar></ToolBar>
+      <ToolBar>
+        <BtnMaterial>Nuevo Producto</BtnMaterial>
+      </ToolBar>
       <Table headers={headers} data={products}></Table>
     </div>
   );
