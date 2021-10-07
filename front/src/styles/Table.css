@@ -36,14 +36,13 @@ th {
   height: fit-content;
   /* padding: 15% */
   overflow-y: hidden;
-  border-radius: 1rem;
 }
 
 .table-main {
   font-size: 1.7rem;
   width: 100%;
-  white-space: nowrap;
   border-collapse: collapse;
+  border: 0px;
 }
 
 .table-responsive table > thead {
@@ -56,13 +55,17 @@ th {
   padding: 15px;
 }
 
+.table-main th{
+  color: white;
+}
+
 .table-main th,
 .table-main td{
-border-bottom: 1px solid  var(--light-blue);
+  border-bottom: 1px solid  var(--light-blue);
 }
 
 .table-main>tbody>tr>td{
-text-align: center;
+  text-align: center;
 }
 
 .action_btn{
