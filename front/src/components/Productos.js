@@ -109,7 +109,7 @@ const Productos = () => {
   return (
     <div className="Module Module-container divider-section">
       <ToolBar>
-        <BtnMaterial>Nuevo Producto</BtnMaterial>
+        <BtnMaterial >Nuevo Producto</BtnMaterial>
       </ToolBar>
       <Table headers={headers} data={products}></Table>
     </div>

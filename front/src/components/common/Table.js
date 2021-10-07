@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
+import BtnMaterial from "./BtnMaterial";
 import "../../styles/Table.css";
 
 const Table = ({ headers, data }) => {
@@ -30,8 +31,10 @@ const Table = ({ headers, data }) => {
               <td>{element.stock}</td> */}
               <td>
                 <span class="action_btn">
-                  <a href="#">Edit</a>
-                  <a href="#">Remove</a>
+                  {/* <a href="#">Edit</a>
+                  <a href="#">Remove</a> */}
+                  <BtnMaterial ><i class="fas fa-edit"></i></BtnMaterial>
+                  <BtnMaterial variant='danger' formSheet='rounded'> <i class="fas fa-trash"></i></BtnMaterial>
                 </span>
               </td>
             </tr>

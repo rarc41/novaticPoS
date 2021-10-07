@@ -102,3 +102,11 @@
 .pure-material-button-contained:disabled::after {
     opacity: 0;
 }
+
+.danger{
+    background-color: red;
+}
+
+.rounded{
+    border-radius: 50%
+}
