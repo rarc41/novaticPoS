@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PruebaModal from "./common/Modal";
 import PruebasUsuario from "./pruebas/PruebasUsuario";
 import formulario from "../resources/json/usuario.json";
-import { Button } from "reactstrap";
 import "../styles/Button.css";
 import Search from "./common/Search";
 import Table from './common/Table';
@@ -39,8 +38,6 @@ const Usuarios = () => {
 
   return (
     <div className="Module Module-container product-section">
-
-
       <ToolBar></ToolBar>
       <Table headers={headers_test} data={values}></Table>
     </div>

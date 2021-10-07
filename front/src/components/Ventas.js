@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PruebaModal from './common/Modal';
 import PruebasVenta from './pruebas/PruebasVenta';
 import formulario from '../resources/json/venta.json';
-import { Button } from 'reactstrap';
 import '../styles/Button.css';
 import Search from './common/Search';
+import Button from './common/Button'
 
 const Ventas = () => {
   const [modalForm, setModalForm] = useState(false);
