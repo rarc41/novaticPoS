@@ -31,7 +31,7 @@ th {
 .table-responsive {
   /* max-width: 75%; */
   width: 64%;
-  border: 1px solid var(--neutral-blue);
+  border:0px;
   overflow-y: scroll;
   height: fit-content;
   /* padding: 15% */
@@ -42,11 +42,10 @@ th {
   font-size: 1.7rem;
   width: 100%;
   border-collapse: collapse;
-  border: 0px;
 }
 
 .table-responsive table > thead {
-  background-color: var(--neutral-blue);
+  background-color: var(--light-blue);
   text-align: center;
   text-transform: capitalize;
 }
@@ -62,6 +61,7 @@ th {
 .table-main th,
 .table-main td{
   border-bottom: 1px solid  var(--light-blue);
+  padding: 8px;
 }
 
 .table-main>tbody>tr>td{

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Products.css";
+import BtnMaterial from "./common/BtnMaterial";
 import Table from "./common/Table"
 import ToolBar from "./common/ToolBar";
+import Modal from "./common/Modal";
+import formulario from '../resources/json/producto.json';
 
 const Productos = () => {
+  const [modalForm, setModalForm] = useState(false);
+  const handleModalOpen = () => {
+    setModalForm(!modalForm);
+  };
+
   const products = [
     {
       id: 1,
@@ -50,9 +58,12 @@ const Productos = () => {
 
 
   return (
-    <div className="Module Module-container product-section">
-      <ToolBar></ToolBar>
+    <div className="Module Module-container divider-section">
+      <ToolBar>
+        <BtnMaterial onClick={handleModalOpen}>Nuevo Producto  <i class="fas fa-plus-circle"></i></BtnMaterial>
+      </ToolBar>
       <Table headers={headers} data={products}></Table>
+      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario}></Modal>
     </div>
   );
 };

@@ -1,10 +1,5 @@
 [
-  {
-    "type": "number",
-    "name": "id",
-    "label": "Id venta"
-  },
-  {
+ {
     "type": "number",
     "name": "value",
     "label": "Valor venta"
@@ -28,11 +23,6 @@
     "type": "date",
     "name": "date",
     "label": "Fecha venta"
-  },
-  {
-    "type": "number",
-    "name": "client_id",
-    "label": "Id Cliente"
   },
   {
     "type": "text",

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 
 import "../styles/Button.css";
+import BtnMaterial from "./common/BtnMaterial";
 import Table from './common/Table';
 import ToolBar from "./common/ToolBar";
+import Modal from "./common/Modal";
+import formulario from '../resources/json/venta.json';
 
 const Ventas = () => {
+  const [modalForm, setModalForm] = useState(false);
+  const handleModalOpen = () => {
+    setModalForm(!modalForm);
+  };
+
   const headers = [
     { name: "ID venta", value: "id" },
     { name: "Valor venta", value: "value" },
@@ -69,9 +77,12 @@ const Ventas = () => {
 
 
   return (
-    <div className="Module Module-container product-section">
-      <ToolBar></ToolBar>
+    <div className="Module Module-container divider-section">
+      <ToolBar>
+        <BtnMaterial onClick={handleModalOpen}>Nueva Venta <i class="fas fa-plus-circle"></i></BtnMaterial>
+      </ToolBar>
       <Table headers={headersTest} data={values}></Table>
+      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario}></Modal>
     </div>
   );
 };

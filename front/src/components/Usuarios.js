@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import PruebaModal from "./common/Modal";
-import PruebasUsuario from "./pruebas/PruebasUsuario";
-import formulario from "../resources/json/usuario.json";
 import "../styles/Button.css";
-import Search from "./common/Search";
 import Table from './common/Table';
 import ToolBar from "./common/ToolBar";
+import BtnMaterial from "./common/BtnMaterial";
+import formulario from '../resources/json/usuario.json';
+import Modal from './common/Modal';
 
 
 const Usuarios = () => {
@@ -37,9 +36,13 @@ const Usuarios = () => {
   ];
 
   return (
-    <div className="Module Module-container product-section">
-      <ToolBar></ToolBar>
+
+    <div className="Module Module-container divider-section">
+      <ToolBar>
+        <BtnMaterial onClick={handleModalOpen}>Nuevo Usuario <i class="fas fa-plus-circle"></i></BtnMaterial>
+      </ToolBar>
       <Table headers={headers_test} data={values}></Table>
+      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario}></Modal>
     </div>
   );
 };

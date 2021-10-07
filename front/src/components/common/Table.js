@@ -1,4 +1,6 @@
 import React from "react";
+
+import BtnMaterial from "./BtnMaterial";
 import "../../styles/Table.css";
 
 const Table = ({ headers, data }) => {
@@ -7,31 +9,32 @@ const Table = ({ headers, data }) => {
       <table className="table-main">
         <thead className="fixed">
           <tr>
-            {headers.map((field) => (
-              <th>{field}</th>
-            ))}
-            <th>Actions</th>
+            {headers.map((field) =>
+              field !== "id" && field !== "client_id" ? <th>{field}</th> : ""
+            )}
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {data.map((element) => (
-              
             <tr key={element.id}>
-                {Object.keys(element).map((key) => (
-                    
-                    (key!=='id' && key!=='img')?
-                    <td>{element[key]}</td>
-                    :
-                    ''
-                ))}
+              {Object.keys(element).map((key) =>
+                key !== "id" && key !== "img" && key !== "client_id" ? (
+                  <td>{element[key]}</td>
+                ) : (
+                  ""
+                )
+              )}
               {/* <td>{element.name}</td>
               <td>{element.descripcion}</td>
               <td>{element.price}</td>
               <td>{element.stock}</td> */}
               <td>
                 <span class="action_btn">
-                  <a href="#">Edit</a>
-                  <a href="#">Remove</a>
+                  {/* <a href="#">Edit</a>
+                  <a href="#">Remove</a> */}
+                  <BtnMaterial variant='update'><i class="fas fa-edit">Actualizar</i></BtnMaterial>
+                  <BtnMaterial variant='danger'> <i class="fas fa-trash">Eliminar</i></BtnMaterial>
                 </span>
               </td>
             </tr>
