@@ -16,8 +16,9 @@
     font-size: 15px;
 }
 
-th, td {
-    border-bottom: 1px solid #ddd;
+table th,
+table td {
+    border-bottom: 1px solid  var(--light-blue);
     height: 5rem;
 }
 

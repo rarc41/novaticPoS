@@ -3,11 +3,10 @@ import '../../styles/Navbar.css';
 
 const Navbar = ({changeSection}) => {
   const options = [
-    { name: "vendedores", icon: "fas fa-id-card" },
     { name: "productos", icon: "fas fa-store" },
     { name: "ventas", icon: "fas fa-chart-line" },
     { name: "admin", icon: "fas fa-users-cog" },
-    { name: "Sign out", icon: "fas fa-sign-out-alt" },
+    { name: "login", icon: "fas fa-sign-out-alt" },
   ];
 
   const [active, setActive] = useState(false)

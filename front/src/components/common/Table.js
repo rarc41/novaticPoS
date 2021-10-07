@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "reactstrap";
 import "../../styles/Table.css";
 
-const Table = ({ headers, data }) => {
   return (
     <div className="table-responsive">
       <table className="table-main">
@@ -43,4 +42,3 @@ const Table = ({ headers, data }) => {
   );
 };
 
-export default Table;
