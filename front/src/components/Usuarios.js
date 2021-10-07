@@ -7,6 +7,7 @@ import "../styles/Button.css";
 import Search from "./common/Search";
 import Table from './common/Table';
 import ToolBar from "./common/ToolBar";
+import BtnMaterial from "./common/BtnMaterial";
 
 
 const Usuarios = () => {
@@ -38,10 +39,12 @@ const Usuarios = () => {
   ];
 
   return (
-    <div className="Module Module-container product-section">
+    <div className="Module Module-container divider-section">
 
 
-      <ToolBar></ToolBar>
+      <ToolBar>
+        <BtnMaterial>Nuevo Usuario</BtnMaterial>
+      </ToolBar>
       <Table headers={headers_test} data={values}></Table>
     </div>
   );

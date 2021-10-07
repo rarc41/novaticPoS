@@ -16,7 +16,6 @@ const ToolBar = ({children}) => {
         </a>
       </div>
       {children}
-      <BtnMaterial>Agregar</BtnMaterial>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "../styles/Button.css";
+import BtnMaterial from "./common/BtnMaterial";
 import Table from './common/Table';
 import ToolBar from "./common/ToolBar";
 
@@ -69,8 +70,10 @@ const Ventas = () => {
 
 
   return (
-    <div className="Module Module-container product-section">
-      <ToolBar></ToolBar>
+    <div className="Module Module-container divider-section">
+      <ToolBar>
+        <BtnMaterial>Nueva Venta</BtnMaterial>
+      </ToolBar>
       <Table headers={headersTest} data={values}></Table>
     </div>
   );
