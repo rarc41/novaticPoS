@@ -31,8 +31,6 @@ const Table = ({ headers, data }) => {
               <td>{element.stock}</td> */}
               <td>
                 <span class="action_btn">
-                  {/* <a href="#">Edit</a>
-                  <a href="#">Remove</a> */}
                   <BtnMaterial variant='update'><i class="fas fa-edit"></i>Actualizar</BtnMaterial>
                   <BtnMaterial variant='danger'> <i class="fas fa-trash"></i> Eliminar</BtnMaterial>
                 </span>

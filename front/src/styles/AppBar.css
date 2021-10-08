@@ -7,3 +7,18 @@
     /* z-index: 1; */
     /* top: 0; */
 }
+
+.AppBar h3{
+    color: white;
+    margin-top: 1rem;
+    margin-left: 105rem;
+}
+
+.AppBar span{
+    position: absolute;
+    bottom: 1rem;
+    margin-left: 130rem;
+    font-size: 3.4rem;
+    color: var(--text-contrast-blue);
+}
+
