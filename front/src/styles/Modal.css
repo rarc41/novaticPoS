@@ -1,0 +1,48 @@
+:root {
+  --black: #000015;
+  --dark-blue: #212c4d;
+  --neutral-blue: #525993;
+  --light-blue: #938be3;
+  --lyla: #e6c3ff;
+}
+
+.modal-background {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.modal-card {
+  margin: 0 auto;
+  display: block;
+  margin-top: 10rem;
+  width: 47rem;
+  height: 45rem;
+  background-color: white;
+  border-radius: 1rem;
+  align-items: center;
+  align-content: center;
+  box-shadow: 2px 2px 10px #666;
+}
+
+hr{
+  margin-top: 1rem;
+  width: 40rem;
+  height: 0%;
+  border-color:  var(--light-blue);
+}
+
+.modal-card h1{
+  margin-top: 2rem;
+  margin-left: 3rem;
+  text-align: left;
+  font-size: 3rem ;
+  color: #000015;
+}
+
+.group-button{
+  margin-top: 1rem;
+  margin-left: 23rem;
+}

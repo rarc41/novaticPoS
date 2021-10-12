@@ -1,0 +1,38 @@
+[
+  {
+    "name": "role",
+    "options": [
+      {
+        "name": "admin",
+        "label": "Administrador"
+      },
+      {
+        "name": "vendedor",
+        "label": "Vendedor"
+      }
+    ],
+    "label": "Rol",
+    "type": "select_one",
+    "size": "12"
+  },
+  {
+    "name": "status",
+    "options": [
+      {
+        "name": "pendiente",
+        "label": "Pendiente"
+      },
+      {
+        "name": "autorizado",
+        "label": "Autorizado"
+      },
+      {
+        "name": "no-autorizado",
+        "label": "No autorizador"
+      }
+    ],
+    "label": "Estado",
+    "type": "select_one",
+    "size": "12"
+  }
+]

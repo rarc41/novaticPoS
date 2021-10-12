@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
+
+body {
+    background-image: linear-gradient(#938be3,#e6c3ff);
+    background-repeat: repeat-x;
+    margin: 0px;
+    
+    
+}
+
+.logoMinTic {
+    padding:10px;
+
+}
+
+h1{
+    font-family: 'Fredoka One';
+    color: white;
+    font-size: 70px;
+    
+} 
+
+.contenedor {
+    
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    
+}
+
+.login {
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+
+}
+
+.bienvenidos {
+    margin: auto;
+    margin-top: 122px;
+}
+
+label {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+    margin-bottom: 2px;
+    width: max-content;
+
+}
+input {
+    width: 320px;
+    height: 40px;
+    border-radius: 15px;
+    border-color: white;
+    margin-bottom: 30px;
+    border-style: solid;
+    font-weight:bold;
+    font-size: 15px;
+    text-align: center;
+    outline: 0px;
+
+}
+
+input:focus {
+    border:solid 2px #938be3;
+}
+.inputPass {
+    margin-bottom: 10px;
+}
+
+.buttonContinuar {
+    background-image: linear-gradient(to right,#e6c3ff,#938be3);
+    width: 325px;
+    height: 45px;
+    border-radius: 15px;
+    border-color: white;
+    color:white;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+    border-style: solid;
+    outline: none;
+}
+
+.buttonContinuar:focus, .buttonContinuar:hover {
+    border:solid 2px #938be3;
+}
+
+.buttonGoogle {
+    display: grid;
+    grid-template-columns: 5% 90%;
+    width: 325px;
+    height: 45px;
+    margin-top: 10px;
+    border-radius: 15px;
+    background-color: white;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+    border-left-color:#F90101 ;
+    border-top-color:#F2B50F ;
+    border-right-color:#00933B ;
+    border-bottom-color: #0266C8;
+    border-style:solid;
+    outline:none;
+    align-items: center;
+    
+
+}
+
+.buttonGoogle:focus, .buttonGoogle:hover {
+    border:solid 2px #938be3;
+}
+
+  
+
