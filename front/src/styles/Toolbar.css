@@ -21,6 +21,8 @@
   margin: 0;
 }
 
+
+.search-txt:focus,
 .search-box:hover > .search-txt {
   transition: 0.4s;
   width: 240px;
@@ -56,6 +58,7 @@
   width: 0;
   /* color: white; */
 }
+
 
 .search-box a {
   text-decoration: none;
