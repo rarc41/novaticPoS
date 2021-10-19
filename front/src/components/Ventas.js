@@ -23,9 +23,7 @@ const Ventas = () => {
     { name: "Vendedor", value: "seller" },
     { name: " ", value: "button" },
   ];
-
-  const headers_test = ["ID venta", "Valor venta", "Fecha de venta", "ID cliente", "Nombre cliente", "Vendedor"];
-
+  
   const values = [
     {
       id: 123,
@@ -66,7 +64,7 @@ const Ventas = () => {
       <ToolBar>
         <BtnMaterial onClick={handleModalOpen}>Nueva Venta <i class="fas fa-plus-circle"></i></BtnMaterial>
       </ToolBar>
-      <Table headers={headers_test} data={values} type={"ventas"}></Table>
+      <Table headers={headers} data={values} type={"ventas"}></Table>
       <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario} title={"Crear Venta"}></Modal>
     </div>
   );

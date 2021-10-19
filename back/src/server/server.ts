@@ -9,7 +9,7 @@ export default class Server {
   constructor(port: number) {
     this.port = port;
     this.app = express();
-    this.app.use(cors());
+    this.app.use(cors({ origin: false }));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
   }

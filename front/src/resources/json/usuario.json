@@ -1,5 +1,10 @@
 [
   {
+    "type": "text",
+    "name": "user",
+    "label": "Nombre usuario"
+  },
+  {
     "name": "role",
     "options": [
       {
