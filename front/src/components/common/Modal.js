@@ -3,14 +3,14 @@ import '../../styles/Modal.css';
 import Form from './Form';
 import BtnMaterial from './BtnMaterial';
 
-const Modal = ({ isOpen, handleOpen, formulario }) => {
+const Modal = ({ isOpen, handleOpen, formulario, title }) => {
   return (
     <div
     hidden={!isOpen}  
   >
     <div className="modal-background" >
       <div className="modal-card">
-        <h1 className="title">Crear Usuario</h1>
+        <h1 className="title">{title}</h1>
         <hr/>
         <Form fields={formulario}></Form>
         <hr/>

@@ -54,7 +54,7 @@ const Productos = () => {
       img: "http://dummyimage.com/238x100.png/5fa2dd/ffffff",
     },
   ];
-  const headers = ["nombre", "descripcion", "stock", "precio"];
+  const headers = ["nombre", "descripcion", "stock", "precio", ""];
 
 
   return (
@@ -63,7 +63,7 @@ const Productos = () => {
         <BtnMaterial onClick={handleModalOpen}>Nuevo Producto  <i class="fas fa-plus-circle"></i></BtnMaterial>
       </ToolBar>
       <Table headers={headers} data={products}></Table>
-      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario}></Modal>
+      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario} title ={"Crear Producto"}></Modal>
     </div>
   );
 };

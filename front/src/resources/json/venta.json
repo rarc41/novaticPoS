@@ -5,21 +5,6 @@
     "label": "Valor venta"
   },
   {
-    "type": "number",
-    "name": "product",
-    "label": "Id producto"
-  },
-  {
-    "type": "number",
-    "name": "product_count",
-    "label": "Cantidad producto"
-  },
-  {
-    "type": "number",
-    "name": "product_price",
-    "label": "Precio Unitario producto"
-  },
-  {
     "type": "date",
     "name": "date",
     "label": "Fecha venta"

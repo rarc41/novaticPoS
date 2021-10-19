@@ -3,14 +3,14 @@ import React from "react";
 import BtnMaterial from "./BtnMaterial";
 import "../../styles/Table.css";
 
-const Table = ({ headers, data }) => {
+const Table = ({ headers, data, onClick, type}) => {
   return (
     <div className="table-responsive">
       <table className="table-main">
         <thead className="fixed">
           <tr>
             {headers.map((field) =>
-              field !== "id" && field !== "client_id" ? <th>{field}</th> : ""
+              <th>{field}</th> 
             )}
             <th></th>
           </tr>
@@ -19,7 +19,7 @@ const Table = ({ headers, data }) => {
           {data.map((element) => (
             <tr key={element.id}>
               {Object.keys(element).map((key) =>
-                key !== "id" && key !== "img" && key !== "client_id" ? (
+                 key !== "img" ? (
                   <td>{element[key]}</td>
                 ) : (
                   ""
@@ -31,6 +31,7 @@ const Table = ({ headers, data }) => {
               <td>{element.stock}</td> */}
               <td>
                 <span class="action_btn">
+                  <BtnMaterial onClick={onClick}><i class="fas fa-list-alt"></i>Detalle</BtnMaterial>
                   <BtnMaterial variant='update'><i class="fas fa-edit"></i>Actualizar</BtnMaterial>
                   <BtnMaterial variant='danger'> <i class="fas fa-trash"></i> Eliminar</BtnMaterial>
                 </span>

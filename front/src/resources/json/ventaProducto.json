@@ -1,0 +1,18 @@
+[
+    {
+        "type": "text",
+        "name": "product",
+        "label": "Producto"
+      },
+    {
+       "type": "number",
+       "name": "value",
+       "label": "Cantidad"
+     },
+     {
+        "type": "number",
+        "name": "price",
+        "label": "Precio Unitario"
+      }
+
+   ]
