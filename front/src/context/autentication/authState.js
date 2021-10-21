@@ -28,7 +28,7 @@ const AuthState = props => {
     const registrarUsuario = async datos => {
         console.log(datos)
         try {
-            const response = await clienteAxios.post('/api/auth', datos);
+            const response = await clienteAxios.post('/api/v1/users', datos);
             console.log(response)
 
             dispatch({
