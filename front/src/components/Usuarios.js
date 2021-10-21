@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import '../styles/Button.css';
-import Table from './common/Table';
-import ToolBar from './common/ToolBar';
-import BtnMaterial from './common/BtnMaterial';
-import formulario from '../resources/json/usuario.json';
-import clienteAxios from '../config/axios';
-import Modal from './common/Modal';
+import React, { useState } from "react";
+import "../styles/Button.css";
+import Table from "./common/Table";
+import ToolBar from "./common/ToolBar";
+import BtnMaterial from "./common/BtnMaterial";
+import formulario from "../resources/json/usuario.json";
+import clienteAxios from "../config/axios";
+import Modal from "./common/Modal";
+import CrearUsuariosForm from "./CrearUsuariosForm";
 
 const Usuarios = () => {
   let [values, setValues] = useState([]);
@@ -15,7 +16,7 @@ const Usuarios = () => {
   };
   React.useEffect(() => {
     clienteAxios
-      .get('users/')
+      .get("/api/v1/users")
       .then((response) => {
         console.log(response.data.data);
         setValues(response.data.data);
@@ -27,10 +28,10 @@ const Usuarios = () => {
   }, []);
 
   const headers = [
-    { name: 'Usuario', value: 'user' },
-    { name: 'Rol', value: 'role' },
-    { name: 'Estado', value: 'state' },
-    { name: ' ', value: 'button' },
+    { name: "Usuario", value: "user" },
+    { name: "Rol", value: "role" },
+    { name: "Estado", value: "state" },
+    { name: " ", value: "button" },
   ];
 
   return (
@@ -41,7 +42,14 @@ const Usuarios = () => {
         </BtnMaterial>
       </ToolBar>
       <Table headers={headers} data={values}></Table>
-      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario} title={'Crear Usuario'}></Modal>
+      <Modal
+        isOpen={modalForm}
+        handleOpen={handleModalOpen}
+        // formulario={formulario}
+        title={"Crear Usuario"}
+      >
+        <CrearUsuariosForm handleOpen={handleModalOpen}/>
+      </Modal>
     </div>
   );
 };
