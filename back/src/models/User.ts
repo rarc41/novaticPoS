@@ -13,15 +13,15 @@ const userSchema = new Schema({
     unique: true,
     required: true,
   },
-  usuario: {
+  user: {
     type: String,
     required: true,
   },
-  rol: {
+  role: {
     type: String,
     required: true,
   },
-  estado: {
+  state: {
     type: String,
     required: true,
   },

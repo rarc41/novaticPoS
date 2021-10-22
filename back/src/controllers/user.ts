@@ -21,9 +21,9 @@ class UserController extends Controller {
     let response: BaseResponse;
     try {
       if (!req.body.id) response = this.badResponse('Identificador');
-      else if (!req.body.usuario) response = this.badResponse('Usuario');
-      else if (!req.body.rol) response = this.badResponse('Rol');
-      else if (!req.body.estado) response = this.badResponse('Estado');
+      else if (!req.body.user) response = this.badResponse('Usuario');
+      else if (!req.body.role) response = this.badResponse('Rol');
+      else if (!req.body.state) response = this.badResponse('Estado');
       else {
         const user = await User.findOne({ id: req.body.id });
         if (user) response = this.customResponse(400, 'El ID del usuario ya está registrado', null);

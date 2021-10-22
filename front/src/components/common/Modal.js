@@ -3,7 +3,7 @@ import '../../styles/Modal.css';
 import Form from './Form';
 import BtnMaterial from './BtnMaterial';
 
-const Modal = ({ isOpen, handleOpen, formulario, title }) => {
+const Modal = ({ isOpen, handleOpen, formulario, title, children }) => {
   return (
     <div
     hidden={!isOpen}  
@@ -12,13 +12,14 @@ const Modal = ({ isOpen, handleOpen, formulario, title }) => {
       <div className="modal-card">
         <h1 className="title">{title}</h1>
         <hr/>
-        <Form fields={formulario}></Form>
-        <BtnMaterial variant='update'>Agregar producto <i class="fas fa-plus"></i></BtnMaterial>
-        <hr/> 
-        <div className="group-button">
+        
+        {/* <Form fields={formulario}></Form> */}
+        {children}
+        {/* <div className="group-button">
+>>>>>>> b644b0b72fd6a1a72e5913fba4fc6add9cd2021f
           <BtnMaterial >Crear</BtnMaterial>
           <BtnMaterial onClick={handleOpen} variant='danger'>Cancelar</BtnMaterial>
-        </div>
+        </div> */}
       
       </div>
      

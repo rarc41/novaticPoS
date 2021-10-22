@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../styles/Products.css";
 import BtnMaterial from "./common/BtnMaterial";
-import Table from "./common/Table"
+import Table from "./common/Table";
 import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
-import formulario from '../resources/json/producto.json';
+import formulario from "../resources/json/producto.json";
+import CreateProductsForm from "./CreateProductsForm";
 
 const Productos = () => {
   const [modalForm, setModalForm] = useState(false);
@@ -54,16 +55,30 @@ const Productos = () => {
       img: "http://dummyimage.com/238x100.png/5fa2dd/ffffff",
     },
   ];
-  const headers = ["nombre", "descripcion", "stock", "precio", ""];
-
+  const headers = [
+    { name: "nombre", value: "name" },
+    { name: "descripcion", value: "descripcion" },
+    { name: "stock", value: "stock" },
+    { name: "Precio", value: "price" },
+    "",
+  ];
 
   return (
     <div className="Module Module-container divider-section">
       <ToolBar>
-        <BtnMaterial onClick={handleModalOpen}>Nuevo Producto  <i class="fas fa-plus-circle"></i></BtnMaterial>
+        <BtnMaterial onClick={handleModalOpen}>
+          Nuevo Producto <i class="fas fa-plus-circle"></i>
+        </BtnMaterial>
       </ToolBar>
       <Table headers={headers} data={products}></Table>
-      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario} title ={"Crear Producto"}></Modal>
+      <Modal
+        isOpen={modalForm}
+        handleOpen={handleModalOpen}
+        // formulario={formulario}
+        title={"Crear Producto"}
+      >
+        <CreateProductsForm handleOpen={handleModalOpen} />
+      </Modal>
     </div>
   );
 };

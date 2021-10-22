@@ -4,29 +4,34 @@ import Table from "./common/Table";
 import ToolBar from "./common/ToolBar";
 import BtnMaterial from "./common/BtnMaterial";
 import formulario from "../resources/json/usuario.json";
+import clienteAxios from "../config/axios";
 import Modal from "./common/Modal";
+import CrearUsuariosForm from "./CrearUsuariosForm";
 
 const Usuarios = () => {
+  let [values, setValues] = useState([]);
   const [modalForm, setModalForm] = useState(false);
   const handleModalOpen = () => {
     setModalForm(!modalForm);
   };
+  React.useEffect(() => {
+    clienteAxios
+      .get("users")
+      .then((response) => {
+        console.log(response.data.data);
+        setValues(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setValues([]);
+      });
+  }, []);
 
   const headers = [
     { name: "Usuario", value: "user" },
     { name: "Rol", value: "role" },
     { name: "Estado", value: "state" },
     { name: " ", value: "button" },
-  ];
-
-  const headers_test = ["usuario", "rol", "estado"];
-
-  const values = [
-    { user: "Alejandra", role: "Administrador", state: "pendiente" },
-    { user: "Elias", role: "Vendedor", state: "autorizado" },
-    { user: "Robin", role: "Administrador", state: "no autorizado" },
-    { user: "Cristian", role: "Vendedor", state: "pendiente" },
-    { user: "Sara", role: "Administrador", state: "autorizado" },
   ];
 
   return (
@@ -36,13 +41,15 @@ const Usuarios = () => {
           Nuevo Usuario <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers_test} data={values}></Table>
+      <Table headers={headers} data={values}></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
-        formulario={formulario}
+        // formulario={formulario}
         title={"Crear Usuario"}
-      ></Modal>
+      >
+        <CrearUsuariosForm handleOpen={handleModalOpen}/>
+      </Modal>
     </div>
   );
 };
