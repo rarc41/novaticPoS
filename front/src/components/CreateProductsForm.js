@@ -4,11 +4,15 @@ import "../styles/Modal.css";
 import Input from "./common/Input";
 import Select from "./common/Select";
 import BtnMaterial from "./common/BtnMaterial";
+import ProductsContext from "../context/productos/productsContext";
+
 import { v4 as uuidv4 } from "uuid";
 
-const CreateProductsForm = ({handleOpen}) => {
+const CreateProductsForm = ({ handleOpen }) => {
+  const productsContext = useContext(ProductsContext);
+  const { obtenerProductos, agregarProducto } = productsContext;
   const [producto, setProducto] = useState({
-    id: "",
+    id: uuidv4(),
     name: "",
     description: "",
     stock: "",
@@ -26,12 +30,9 @@ const CreateProductsForm = ({handleOpen}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setProducto({
-      ...producto,
-      id: uuidv4(),
-    });
-    console.log("registrando producto", producto);
-    // registrarUsuario(userInfo);
+    agregarProducto(producto);
+    handleOpen();
+    obtenerProductos();
   };
 
   const { nombre, description, value, stock, price } = producto;
@@ -64,11 +65,11 @@ const CreateProductsForm = ({handleOpen}) => {
       ></Input>
       <Input
         label="Precio"
-        name="price"
+        name="value"
         required={true}
         type="number"
         onChange={handleChange}
-        value={price}
+        value={value}
       ></Input>
       <div>
         <BtnMaterial type="submit">Crear</BtnMaterial>

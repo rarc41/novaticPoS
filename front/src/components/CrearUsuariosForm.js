@@ -9,7 +9,7 @@ import AuthContext from "../context/autentication/authContext";
 import { v4 as uuidv4 } from 'uuid';
 
 
-const CrearUsuariosForm = ({handleOpen}) => {
+const CrearUsuariosForm = ({handleOpen, getUsers, setActualizarTabla}) => {
   const [userInfo, setUserInfo] = useState({
     user: "",
     role: "",
@@ -26,7 +26,7 @@ const CrearUsuariosForm = ({handleOpen}) => {
   };
 
   const authContext = useContext(AuthContext);
-  const { registrarUsuario } = authContext;
+  const { registrarUsuario, obtenerUsuarios } = authContext;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,8 +34,9 @@ const CrearUsuariosForm = ({handleOpen}) => {
       ...userInfo,
       id: uuidv4(),
     });
-    console.log("registrando usuario", userInfo)
     registrarUsuario(userInfo);
+    handleOpen()
+    obtenerUsuarios()
   }
 
   const { user, role, state } = userInfo;

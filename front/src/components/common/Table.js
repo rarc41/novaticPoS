@@ -4,6 +4,7 @@ import BtnMaterial from './BtnMaterial';
 import '../../styles/Table.css';
 
 const Table = ({ headers, data, onClick, type }) => {
+  console.log(data);
   return (
     <div className="table-responsive">
       <table className="table-main">
@@ -17,7 +18,7 @@ const Table = ({ headers, data, onClick, type }) => {
         </thead>
         <tbody>
           {data.map(row => 
-            <tr>
+            <tr key={row._id}>
               {headers.map(field => <td>{row[field.value]}</td>)}
               <td>
                 <span class="action_btn">
