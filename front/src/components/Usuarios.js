@@ -16,7 +16,7 @@ const Usuarios = () => {
   };
   React.useEffect(() => {
     clienteAxios
-      .get("/api/v1/users")
+      .get("users")
       .then((response) => {
         console.log(response.data.data);
         setValues(response.data.data);
