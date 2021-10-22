@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import Login from "./components/login/Login";
 import AuthState from "./context/autentication/authState";
 import ProductsState from "./context/productos/productsState";
+import VentasState from "./context/ventas/ventasState";
 
 function App() {
   const [loginIn, setLoginIn] = useState(false);
@@ -17,22 +18,24 @@ function App() {
   return (
     <AuthState>
       <ProductsState>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/">
-              {loginIn ? (
-                <Redirect to="/inicio" />
-              ) : (
-                <Login
-                  handleSuccess={handleSuccess}
-                  handleFailure={handleFailure}
-                />
-              )}
-            </Route>
-            <Route exact path="/inicio" component={Main}></Route>
-            <Route exact path="/" component={Login}></Route>
-          </Switch>
-        </BrowserRouter>
+        <VentasState>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/">
+                {loginIn ? (
+                  <Redirect to="/inicio" />
+                ) : (
+                  <Login
+                    handleSuccess={handleSuccess}
+                    handleFailure={handleFailure}
+                  />
+                )}
+              </Route>
+              <Route exact path="/inicio" component={Main}></Route>
+              <Route exact path="/" component={Login}></Route>
+            </Switch>
+          </BrowserRouter>
+        </VentasState>
       </ProductsState>
     </AuthState>
   );

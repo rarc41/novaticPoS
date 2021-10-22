@@ -36,8 +36,8 @@ const ProductsState = (props) => {
       } catch (error) {
           console.log(error);
       }
-  }
-
+  };
+  
   return (
       <ProductsContext.Provider
       value={{

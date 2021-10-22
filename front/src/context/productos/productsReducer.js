@@ -8,11 +8,11 @@ export default (state, action) => {
         productos: action.payload,
       };
 
-      case AGREGAR_PRODUCTO:
-          return {
-              ...state,
-              productos: [...state.productos, action.payload]
-          }
+    case AGREGAR_PRODUCTO:
+      return {
+        ...state,
+        productos: [...state.productos, action.payload],
+      };
     default:
       return state;
   }
