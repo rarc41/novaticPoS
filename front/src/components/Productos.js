@@ -68,7 +68,7 @@ const Productos = () => {
     { name: "nombre", value: "name" },
     { name: "descripcion", value: "description" },
     { name: "stock", value: "stock" },
-    { name: "Precio", value: "value" },
+    { name: "Precio", value: "price" },
     "",
   ];
 

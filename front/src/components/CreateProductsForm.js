@@ -16,7 +16,6 @@ const CreateProductsForm = ({ handleOpen }) => {
     name: "",
     description: "",
     stock: "",
-    value: "",
     price: "",
   });
 
@@ -35,7 +34,7 @@ const CreateProductsForm = ({ handleOpen }) => {
     obtenerProductos();
   };
 
-  const { nombre, description, value, stock, price } = producto;
+  const { name, description, stock, price } = producto;
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
@@ -45,7 +44,7 @@ const CreateProductsForm = ({ handleOpen }) => {
         required={true}
         type="text"
         onChange={handleChange}
-        value={nombre}
+        value={name}
       ></Input>
       <Input
         label="Descripcion"
@@ -65,11 +64,11 @@ const CreateProductsForm = ({ handleOpen }) => {
       ></Input>
       <Input
         label="Precio"
-        name="value"
+        name="price"
         required={true}
         type="number"
         onChange={handleChange}
-        value={value}
+        value={price}
       ></Input>
       <div>
         <BtnMaterial type="submit">Crear</BtnMaterial>

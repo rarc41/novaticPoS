@@ -38,7 +38,7 @@ const Ventas = () => {
   const values = [
     {
       id: 123,
-      value: 10000,
+      total: 10000,
       date: "2021-10-05",
       client_id: 12345,
       client_name: "Sara",
@@ -46,7 +46,7 @@ const Ventas = () => {
     },
     {
       id: 124,
-      value: 10000,
+      total: 10000,
       date: "2021-10-05",
       client_id: 12345,
       client_name: "Sara",
@@ -54,7 +54,7 @@ const Ventas = () => {
     },
     {
       id: 125,
-      value: 2000,
+      total: 2000,
       date: "2021-10-05",
       client_id: 12345,
       client_name: "Sara",
@@ -62,7 +62,7 @@ const Ventas = () => {
     },
     {
       id: 126,
-      value: 20000,
+      total: 20000,
       date: "2021-10-05",
       client_id: 12345,
       client_name: "Sara",

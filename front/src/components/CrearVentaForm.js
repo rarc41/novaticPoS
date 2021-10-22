@@ -14,9 +14,9 @@ const CrearVentaForm = ({ handleOpen }) => {
   const [venta, setVenta] = useState({
     id: uuidv4(),
     total: "",
-    saleDate: "",
+    date: "",
     customername: "",
-    customerid: uuidv4(),
+    customerid: "",
     products: [],
     status: "entregada",
     user: "",
@@ -37,8 +37,7 @@ const CrearVentaForm = ({ handleOpen }) => {
     obtenerVentas();
   };
 
-  const { total, saleDate, customerid, customername, products, status, user } =
-    venta;
+  const { total, date, customerid, customername, products, status, user } = venta;
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
@@ -52,11 +51,19 @@ const CrearVentaForm = ({ handleOpen }) => {
       ></Input>
       <Input
         label="Fecha de Venta"
-        name="saleDate"
+        name="date"
         required={true}
         type="date"
         onChange={handleChange}
-        value={saleDate}
+        value={date}
+      ></Input>
+      <Input
+        label="Identificación del Cliente"
+        name="customerid"
+        required={true}
+        type="number"
+        onChange={handleChange}
+        value={customerid}
       ></Input>
       <Input
         label="Nombre del Cliente"
