@@ -12,8 +12,7 @@ const Modal = ({ isOpen, handleOpen, formulario, title }) => {
       <div className="modal-card">
         <h1 className="title">{title}</h1>
         <hr/>
-        <Form fields={formulario}></Form>
-        <BtnMaterial variant='update'>Agregar producto <i class="fas fa-plus"></i></BtnMaterial>
+        
         <hr/> 
         <div className="group-button">
           <BtnMaterial >Crear</BtnMaterial>

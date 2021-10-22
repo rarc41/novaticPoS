@@ -31,7 +31,6 @@ const Table = ({ headers, data, onClick, type}) => {
               <td>{element.stock}</td> */}
               <td>
                 <span class="action_btn">
-                  <BtnMaterial onClick={onClick}><i class="fas fa-list-alt"></i>Detalle</BtnMaterial>
                   <BtnMaterial variant='update'><i class="fas fa-edit"></i>Actualizar</BtnMaterial>
                   <BtnMaterial variant='danger'> <i class="fas fa-trash"></i> Eliminar</BtnMaterial>
                 </span>
