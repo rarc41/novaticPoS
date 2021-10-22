@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/Products.css";
 import BtnMaterial from "./common/BtnMaterial";
 import Table from "./common/Table";
@@ -6,12 +6,21 @@ import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
 import formulario from "../resources/json/producto.json";
 import CreateProductsForm from "./CreateProductsForm";
+import ProductsContext from '../context/productos/productsContext'
+
 
 const Productos = () => {
   const [modalForm, setModalForm] = useState(false);
   const handleModalOpen = () => {
     setModalForm(!modalForm);
   };
+
+  const productsContext = useContext(ProductsContext);
+  const {obtenerProductos, productos} = productsContext;
+
+  useEffect(() =>{
+    obtenerProductos()
+  }, [])
 
   const products = [
     {
@@ -57,7 +66,7 @@ const Productos = () => {
   ];
   const headers = [
     { name: "nombre", value: "name" },
-    { name: "descripcion", value: "descripcion" },
+    { name: "descripcion", value: "description" },
     { name: "stock", value: "stock" },
     { name: "Precio", value: "price" },
     "",
@@ -70,7 +79,7 @@ const Productos = () => {
           Nuevo Producto <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={products}></Table>
+      <Table headers={headers} data={productos}></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}

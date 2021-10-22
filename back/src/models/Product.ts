@@ -13,11 +13,20 @@ const productSchema = new Schema({
     unique: true,
     required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
   },
-  value: {
+  stock: {
+    type: Number,
+    default: 0,
+    required: true,
+  },
+  price: {
     type: Number,
     required: true,
   },

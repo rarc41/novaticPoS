@@ -24,6 +24,7 @@ const saleSchema = new Schema({
   customerid: String,
   customername: String,
   user: String,
+  date: String,
   status: {
     type: String,
     required: true,

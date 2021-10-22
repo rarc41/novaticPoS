@@ -2,73 +2,85 @@ import React, { useState, useContext } from "react";
 import "../styles/Form.css";
 import "../styles/Modal.css";
 import Input from "./common/Input";
-import Select from "./common/Select";
 import BtnMaterial from "./common/BtnMaterial";
-import ProductsContext from "../context/productos/productsContext";
+import VentasContext from "../context/ventas/ventasContext";
 
 import { v4 as uuidv4 } from "uuid";
 
-const CreateProductsForm = ({ handleOpen }) => {
-  const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, agregarProducto } = productsContext;
-  const [producto, setProducto] = useState({
+const CrearVentaForm = ({ handleOpen }) => {
+  const ventasContext = useContext(VentasContext);
+  const { obtenerVentas, agregarVenta } = ventasContext;
+
+  const [venta, setVenta] = useState({
     id: uuidv4(),
-    name: "",
-    description: "",
-    stock: "",
-    price: "",
+    total: "",
+    date: "",
+    customername: "",
+    customerid: "",
+    products: [],
+    status: "entregada",
+    user: "",
   });
 
   const handleChange = (e) => {
     e.preventDefault();
-    setProducto({
-      ...producto,
+    setVenta({
+      ...venta,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    agregarProducto(producto);
+    agregarVenta(venta);
     handleOpen();
-    obtenerProductos();
+    obtenerVentas();
   };
 
-  const { name, description, stock, price } = producto;
+  const { total, date, customerid, customername, products, status, user } = venta;
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
       <Input
-        label="Nombre"
-        name="name"
-        required={true}
-        type="text"
-        onChange={handleChange}
-        value={name}
-      ></Input>
-      <Input
-        label="Descripcion"
-        name="description"
-        required={true}
-        type="text"
-        onChange={handleChange}
-        value={description}
-      ></Input>
-      <Input
-        label="Stock"
-        name="stock"
+        label="Valor Venta"
+        name="total"
         required={true}
         type="number"
         onChange={handleChange}
-        value={stock}
+        value={total}
       ></Input>
       <Input
-        label="Precio"
-        name="price"
+        label="Fecha de Venta"
+        name="date"
+        required={true}
+        type="date"
+        onChange={handleChange}
+        value={date}
+      ></Input>
+      <Input
+        label="Identificación del Cliente"
+        name="customerid"
         required={true}
         type="number"
         onChange={handleChange}
-        value={price}
+        value={customerid}
+      ></Input>
+      <Input
+        label="Nombre del Cliente"
+        name="customername"
+        required={true}
+        type="text"
+        onChange={handleChange}
+        value={customername}
+      ></Input>
+
+      <Input
+        label="Vendedor"
+        name="user"
+        required={true}
+        type="text"
+        onChange={handleChange}
+        value={user}
       ></Input>
       <div>
         <BtnMaterial type="submit">Crear</BtnMaterial>
@@ -86,4 +98,4 @@ const CreateProductsForm = ({ handleOpen }) => {
   );
 };
 
-export default CreateProductsForm;
+export default CrearVentaForm;

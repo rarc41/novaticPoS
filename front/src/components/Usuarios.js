@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../styles/Button.css";
 import Table from "./common/Table";
 import ToolBar from "./common/ToolBar";
@@ -7,24 +7,19 @@ import formulario from "../resources/json/usuario.json";
 import clienteAxios from "../config/axios";
 import Modal from "./common/Modal";
 import CrearUsuariosForm from "./CrearUsuariosForm";
+import AuthContext from "../context/autentication/authContext";
 
 const Usuarios = () => {
-  let [values, setValues] = useState([]);
   const [modalForm, setModalForm] = useState(false);
   const handleModalOpen = () => {
     setModalForm(!modalForm);
   };
-  React.useEffect(() => {
-    clienteAxios
-      .get("users")
-      .then((response) => {
-        console.log(response.data.data);
-        setValues(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setValues([]);
-      });
+
+  const authContext = useContext(AuthContext);
+  const { usuarios, obtenerUsuarios } = authContext;
+
+  useEffect(() => {
+    obtenerUsuarios()
   }, []);
 
   const headers = [
@@ -41,14 +36,16 @@ const Usuarios = () => {
           Nuevo Usuario <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={values}></Table>
+      <Table headers={headers} data={usuarios}></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         // formulario={formulario}
         title={"Crear Usuario"}
       >
-        <CrearUsuariosForm handleOpen={handleModalOpen}/>
+        <CrearUsuariosForm
+          handleOpen={handleModalOpen}
+        ></CrearUsuariosForm>
       </Modal>
     </div>
   );

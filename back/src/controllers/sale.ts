@@ -39,7 +39,7 @@ class SaleController extends Controller {
   public updateSale = () => async (req: Request, res: Response) => {
     let response: BaseResponse;
     try {
-      await Sale.findOneAndUpdate({ _id: req.params.saleId }, { status: req.body.status });
+      await Sale.findOneAndUpdate({ _id: req.params.saleId }, req.body);
       const sale = await Sale.findOne({ _id: req.params.saleId });
       response = this.updateSuccessResponse(sale);
     } catch (error) {

@@ -22,7 +22,7 @@ class ProductController extends Controller {
     try {
       if (!req.body.id) response = this.badResponse('Identificador');
       else if (!req.body.description) response = this.badResponse('Descripción');
-      else if (!req.body.value) response = this.badResponse('Valor unitario');
+      else if (!req.body.price) response = this.badResponse('Valor unitario');
       else {
         const product = await Product.findOne({ id: req.body.id });
         if (product) response = this.customResponse(400, 'El ID del producto ya está registrado', null);
