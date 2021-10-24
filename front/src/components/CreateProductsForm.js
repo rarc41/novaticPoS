@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/Form.css";
 import "../styles/Modal.css";
 import Input from "./common/Input";
@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const CreateProductsForm = ({ handleOpen }) => {
   const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, agregarProducto } = productsContext;
+  const { obtenerProductos, agregarProducto, productoActual } = productsContext;
   const [producto, setProducto] = useState({
     id: uuidv4(),
     name: "",
@@ -18,6 +18,23 @@ const CreateProductsForm = ({ handleOpen }) => {
     stock: "",
     price: "",
   });
+
+  // efecto para editar el producto
+  useEffect(() => {
+    if (productoActual) {
+      setProducto(productoActual);
+    } else {
+      setProducto({
+        id: uuidv4(),
+        name: "",
+        description: "",
+        stock: "",
+        price: "",
+      });
+    }
+  }, [productoActual]);
+
+
 
   const handleChange = (e) => {
     e.preventDefault();
