@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const CreateProductsForm = ({ handleOpen }) => {
   const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, agregarProducto, productoActual } = productsContext;
+  const { obtenerProductos, agregarProducto, productoActual, actualizarProducto } = productsContext;
   const [producto, setProducto] = useState({
     id: uuidv4(),
     name: "",
@@ -46,7 +46,12 @@ const CreateProductsForm = ({ handleOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    agregarProducto(producto);
+    if (productoActual === null) {
+      agregarProducto(producto);
+    } else {
+      actualizarProducto(producto);
+    }
+
     handleOpen();
     obtenerProductos();
   };
@@ -88,7 +93,7 @@ const CreateProductsForm = ({ handleOpen }) => {
         value={price}
       ></Input>
       <div>
-        <BtnMaterial type="submit">Crear</BtnMaterial>
+        <BtnMaterial type="submit">{productoActual? 'Editar': 'Crear'}</BtnMaterial>
         <BtnMaterial
           onClick={(e) => {
             e.preventDefault();

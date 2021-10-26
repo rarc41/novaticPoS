@@ -6,6 +6,7 @@ import {
   AGREGAR_PRODUCTO,
   OBTENER_PRODUCTOS,
   PRODUCTO_ACTUAL,
+  ACTUALIZAR_PRODUCTO,
 } from "../../types";
 
 const ProductsState = (props) => {
@@ -44,12 +45,30 @@ const ProductsState = (props) => {
   };
 
   //   seleccionar producto
-    const seleccionarProducto = (producto) => {
-        dispatch({
-            type: PRODUCTO_ACTUAL,
-            payload: producto,
-        });
+  const seleccionarProducto = (producto) => {
+    dispatch({
+      type: PRODUCTO_ACTUAL,
+      payload: producto,
+    });
+  };
+
+  //   actualizar producto
+  const actualizarProducto = async (producto) => {
+    console.log(producto);
+    try {
+      const response = await clienteAxios.put(
+        `products/${producto.id}`,
+        producto
+      );
+      console.log(response);
+      dispatch({
+        type: ACTUALIZAR_PRODUCTO,
+        payload: response.data.data,
+      });
+    } catch (error) {
+      console.log(error);
     }
+  }
 
   return (
     <ProductsContext.Provider
@@ -59,6 +78,7 @@ const ProductsState = (props) => {
         obtenerProductos,
         agregarProducto,
         seleccionarProducto,
+        actualizarProducto,
       }}
     >
       {props.children}
