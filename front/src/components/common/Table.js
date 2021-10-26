@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import BtnMaterial from "./BtnMaterial";
-import "../../styles/Table.css";
-import productContext from "../../context/productos/productsContext";
+import BtnMaterial from './BtnMaterial';
+import '../../styles/Table.css';
+import productContext from '../../context/productos/productsContext';
 
 const Table = ({ headers, data, onClick, type, handleModalOpen }) => {
   // obtenemos el context de productos
@@ -29,7 +29,7 @@ const Table = ({ headers, data, onClick, type, handleModalOpen }) => {
         </thead>
         <tbody>
           {data.map((row) => (
-            <tr key={row._id}>
+            <tr key={row.id}>
               {headers.map((field) => (
                 <td>{row[field.value]}</td>
               ))}
@@ -42,7 +42,7 @@ const Table = ({ headers, data, onClick, type, handleModalOpen }) => {
                     <i class="fas fa-edit"></i>Actualizar
                   </BtnMaterial>
                   <BtnMaterial variant="danger">
-                    {" "}
+                    {' '}
                     <i class="fas fa-trash"></i> Eliminar
                   </BtnMaterial>
                 </span>

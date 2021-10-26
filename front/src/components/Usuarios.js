@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
-import "../styles/Button.css";
-import Table from "./common/Table";
-import ToolBar from "./common/ToolBar";
-import BtnMaterial from "./common/BtnMaterial";
-import formulario from "../resources/json/usuario.json";
-import clienteAxios from "../config/axios";
-import Modal from "./common/Modal";
-import CrearUsuariosForm from "./CrearUsuariosForm";
-import AuthContext from "../context/autentication/authContext";
+import React, { useState, useEffect, useContext } from 'react';
+import '../styles/Button.css';
+import Table from './common/Table';
+import ToolBar from './common/ToolBar';
+import BtnMaterial from './common/BtnMaterial';
+import formulario from '../resources/json/usuario.json';
+import clienteAxios from '../config/axios';
+import Modal from './common/Modal';
+import CrearUsuariosForm from './CrearUsuariosForm';
+import AuthContext from '../context/autentication/authContext';
 
 const Usuarios = () => {
   const [modalForm, setModalForm] = useState(false);
@@ -19,14 +19,14 @@ const Usuarios = () => {
   const { usuarios, obtenerUsuarios } = authContext;
 
   useEffect(() => {
-    obtenerUsuarios()
+    obtenerUsuarios();
   }, []);
 
   const headers = [
-    { name: "Usuario", value: "user" },
-    { name: "Rol", value: "role" },
-    { name: "Estado", value: "state" },
-    { name: " ", value: "button" },
+    { name: 'ID', value: 'id' },
+    { name: 'Usuario', value: 'user' },
+    { name: 'Rol', value: 'role' },
+    { name: 'Estado', value: 'state' },
   ];
 
   return (
@@ -41,11 +41,9 @@ const Usuarios = () => {
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         // formulario={formulario}
-        title={"Crear Usuario"}
+        title={'Crear Usuario'}
       >
-        <CrearUsuariosForm
-          handleOpen={handleModalOpen}
-        ></CrearUsuariosForm>
+        <CrearUsuariosForm handleOpen={handleModalOpen}></CrearUsuariosForm>
       </Modal>
     </div>
   );

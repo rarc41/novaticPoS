@@ -1,13 +1,8 @@
-import React, { useReducer } from "react";
-import ProductsContext from "./productsContext";
-import ProductsReducer from "./productsReducer";
-import clienteAxios from "../../config/axios";
-import {
-  AGREGAR_PRODUCTO,
-  OBTENER_PRODUCTOS,
-  PRODUCTO_ACTUAL,
-  ACTUALIZAR_PRODUCTO,
-} from "../../types";
+import React, { useReducer } from 'react';
+import ProductsContext from './productsContext';
+import ProductsReducer from './productsReducer';
+import clienteAxios from '../../config/axios';
+import { AGREGAR_PRODUCTO, OBTENER_PRODUCTOS, PRODUCTO_ACTUAL, ACTUALIZAR_PRODUCTO } from '../../types';
 
 const ProductsState = (props) => {
   const initialState = {
@@ -20,7 +15,7 @@ const ProductsState = (props) => {
   // funciones
   const obtenerProductos = async () => {
     try {
-      const response = await clienteAxios.get("products");
+      const response = await clienteAxios.get('products');
       console.log(response);
       dispatch({
         type: OBTENER_PRODUCTOS,
@@ -33,7 +28,7 @@ const ProductsState = (props) => {
 
   const agregarProducto = async (datos) => {
     try {
-      const response = await clienteAxios.post("products", datos);
+      const response = await clienteAxios.post('products', datos);
       console.log(response);
       dispatch({
         type: AGREGAR_PRODUCTO,
@@ -56,10 +51,7 @@ const ProductsState = (props) => {
   const actualizarProducto = async (producto) => {
     console.log(producto);
     try {
-      const response = await clienteAxios.put(
-        `products/${producto.id}`,
-        producto
-      );
+      const response = await clienteAxios.put(`products/${producto.id}`, producto);
       console.log(response);
       dispatch({
         type: ACTUALIZAR_PRODUCTO,
@@ -68,7 +60,7 @@ const ProductsState = (props) => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <ProductsContext.Provider
