@@ -16,7 +16,7 @@ const Usuarios = () => {
   };
 
   const authContext = useContext(AuthContext);
-  const { usuarios, obtenerUsuarios } = authContext;
+  const { usuarios, obtenerUsuarios, seleccionarUsuario, usuario } = authContext;
 
   useEffect(() => {
     obtenerUsuarios();
@@ -29,6 +29,11 @@ const Usuarios = () => {
     { name: 'Estado', value: 'state' },
   ];
 
+  const handleEdit = async (data) => {
+    await seleccionarUsuario(data);
+    handleModalOpen();
+  }
+
   return (
     <div className="Module Module-container divider-section">
       <ToolBar>
@@ -36,12 +41,12 @@ const Usuarios = () => {
           Nuevo Usuario <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={usuarios}></Table>
+      <Table headers={headers} data={usuarios} handleEdit={handleEdit}></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         // formulario={formulario}
-        title={'Crear Usuario'}
+        title={usuario? 'Editar Usuario' : 'Crear Usuario'}
       >
         <CrearUsuariosForm handleOpen={handleModalOpen}></CrearUsuariosForm>
       </Modal>

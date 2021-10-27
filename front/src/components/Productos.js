@@ -15,11 +15,16 @@ const Productos = () => {
   };
 
   const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, productos } = productsContext;
+  const { obtenerProductos, productos, seleccionarProducto, productoActual } = productsContext;
 
   useEffect(() => {
     obtenerProductos();
   }, []);
+
+  const handleEdit = async (data) => {
+    await seleccionarProducto(data);
+    handleModalOpen();
+  };
 
   const headers = [
     { name: 'ID', value: 'id' },
@@ -37,12 +42,12 @@ const Productos = () => {
           Nuevo Producto <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={productos} handleModalOpen={handleModalOpen}></Table>
+      <Table headers={headers} data={productos} handleModalOpen={handleModalOpen} handleEdit={handleEdit}></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         // formulario={formulario}
-        title={'Crear Producto'}
+        title={productoActual?'Editar Producto' : 'Crear Producto'}
       >
         <CreateProductsForm handleOpen={handleModalOpen} />
       </Modal>

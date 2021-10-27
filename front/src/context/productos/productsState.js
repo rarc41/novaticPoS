@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import ProductsContext from './productsContext';
 import ProductsReducer from './productsReducer';
 import clienteAxios from '../../config/axios';
-import { AGREGAR_PRODUCTO, OBTENER_PRODUCTOS, PRODUCTO_ACTUAL, ACTUALIZAR_PRODUCTO } from '../../types';
+import { AGREGAR_PRODUCTO, OBTENER_PRODUCTOS, PRODUCTO_ACTUAL, ACTUALIZAR_PRODUCTO, LIMPIAR_PRODUCTO_ACTUAL } from '../../types';
 
 const ProductsState = (props) => {
   const initialState = {
@@ -62,6 +62,14 @@ const ProductsState = (props) => {
     }
   };
 
+  // limpiar producto actual
+  const limpiarProductoActual = () => {
+    dispatch({
+      type: LIMPIAR_PRODUCTO_ACTUAL,
+      payload: null,
+    });
+  }
+
   return (
     <ProductsContext.Provider
       value={{
@@ -71,6 +79,7 @@ const ProductsState = (props) => {
         agregarProducto,
         seleccionarProducto,
         actualizarProducto,
+        limpiarProductoActual,
       }}
     >
       {props.children}

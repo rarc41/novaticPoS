@@ -8,7 +8,7 @@ import ProductsContext from '../context/productos/productsContext';
 
 const CreateProductsForm = ({ handleOpen }) => {
   const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, agregarProducto, productoActual, actualizarProducto } = productsContext;
+  const { obtenerProductos, agregarProducto, productoActual, actualizarProducto, limpiarProductoActual } = productsContext;
   const [producto, setProducto] = useState({
     id: '',
     name: '',
@@ -56,8 +56,8 @@ const CreateProductsForm = ({ handleOpen }) => {
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
-      <Input label="ID" name="id" required={true} type="text" onChange={handleChange} value={id}></Input>
-      <Input label="Nombre" name="name" required={true} type="text" onChange={handleChange} value={name}></Input>
+      <Input label="ID" name="id" required={true} type="text" onChange={handleChange} value={id} hidden={productoActual?true:false}></Input>
+      <Input label="Nombre" name="name" required={true} type="text" onChange={handleChange} value={name} ></Input>
       <Input label="Descripcion" name="description" required={true} type="text" onChange={handleChange} value={description}></Input>
       <Input label="Stock" name="stock" required={true} type="number" onChange={handleChange} value={stock}></Input>
       <Input label="Precio" name="price" required={true} type="number" onChange={handleChange} value={price}></Input>
@@ -67,6 +67,7 @@ const CreateProductsForm = ({ handleOpen }) => {
           onClick={(e) => {
             e.preventDefault();
             handleOpen();
+            limpiarProductoActual();
           }}
           variant="danger"
         >

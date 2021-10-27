@@ -12,7 +12,8 @@ import {
   CERRAR_SESION,
   OBTENER_USUARIOS,
   USUARIO_ACTUAL,
-  ACTUALIZAR_USUARIO
+  ACTUALIZAR_USUARIO,
+  LIMPIAR_USUARIO_ACTUAL
 } from "../../types";
 
 const AuthState = (props) => {
@@ -63,6 +64,7 @@ const AuthState = (props) => {
     }
   };
 
+  // seleccionar usuario cuando se haga click en el nombre
   const seleccionarUsuario = (usuario) => {
     dispatch({
       type: USUARIO_ACTUAL,
@@ -83,6 +85,14 @@ const AuthState = (props) => {
     }
   }
 
+  // limpiar usuario actual
+  const limpiarUsuarioActual = () => {
+    dispatch({
+      type: LIMPIAR_USUARIO_ACTUAL,
+      payload: null,
+    });
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -95,6 +105,7 @@ const AuthState = (props) => {
         obtenerUsuarios,
         seleccionarUsuario,
         actualizarUsuario,
+        limpiarUsuarioActual,
       }}
     >
       {props.children}

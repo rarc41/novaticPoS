@@ -4,15 +4,12 @@ import BtnMaterial from './BtnMaterial';
 import '../../styles/Table.css';
 import productContext from '../../context/productos/productsContext';
 
-const Table = ({ headers, data, onClick, type, handleModalOpen }) => {
+const Table = ({ headers, data, onClick, type, handleEdit }) => {
   // obtenemos el context de productos
   const productsContext = useContext(productContext);
   const { seleccionarProducto } = productsContext;
 
-  const handleEdit = async (data) => {
-    await seleccionarProducto(data);
-    handleModalOpen();
-  };
+
 
   return (
     <div className="table-responsive">

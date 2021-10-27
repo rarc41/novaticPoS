@@ -12,15 +12,7 @@ const Modal = ({ isOpen, handleOpen, formulario, title, children }) => {
       <div className="modal-card">
         <h1 className="title">{title}</h1>
         <hr/>
-        
-        {/* <Form fields={formulario}></Form> */}
         {children}
-        {/* <div className="group-button">
->>>>>>> b644b0b72fd6a1a72e5913fba4fc6add9cd2021f
-          <BtnMaterial >Crear</BtnMaterial>
-          <BtnMaterial onClick={handleOpen} variant='danger'>Cancelar</BtnMaterial>
-        </div> */}
-      
       </div>
      
     </div>

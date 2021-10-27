@@ -8,6 +8,7 @@ import {
   OBTENER_USUARIOS,
   ACTUALIZAR_USUARIO,
   USUARIO_ACTUAL,
+  LIMPIAR_USUARIO_ACTUAL
 } from "../../types";
 
 export default (state, action) => {
@@ -46,6 +47,12 @@ export default (state, action) => {
         return {
           ...state,
           usuarios: state.usuarios.map(usuario => usuario.id === action.payload.id ? action.payload : usuario)
+        }
+      }
+      case LIMPIAR_USUARIO_ACTUAL:{
+        return {
+          ...state,
+          usuario: action.payload
         }
       }
 
