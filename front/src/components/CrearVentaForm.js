@@ -4,12 +4,19 @@ import "../styles/Modal.css";
 import Input from "./common/Input";
 import BtnMaterial from "./common/BtnMaterial";
 import VentasContext from "../context/ventas/ventasContext";
+import ModalVentaProducto from "./common/ModalVentaProducto"
 
 import { v4 as uuidv4 } from "uuid";
+import CrearVentaProductoForm from "./CrearVentaProductoForm";
 
 const CrearVentaForm = ({ handleOpen }) => {
   const ventasContext = useContext(VentasContext);
   const { obtenerVentas, agregarVenta } = ventasContext;
+
+  const [modalForm, setModalForm] = useState(false);
+  const handleModalOpen = () => {
+    setModalForm(!modalForm);
+  };
 
   const [venta, setVenta] = useState({
     id: uuidv4(),
@@ -82,6 +89,21 @@ const CrearVentaForm = ({ handleOpen }) => {
         onChange={handleChange}
         value={user}
       ></Input>
+       <ModalVentaProducto
+        isOpen={modalForm}
+        handleOpen={handleModalOpen}
+        title={"Agregar Producto"}
+      >
+        <CrearVentaProductoForm
+        handleOpen={handleModalOpen}
+        />
+      </ModalVentaProducto>
+      <BtnMaterial variant="update"
+        onClick={(e) => {
+          e.preventDefault();
+          handleModalOpen();
+        }}
+      >Agregar Producto</BtnMaterial>
       <div>
         <BtnMaterial type="submit">Crear</BtnMaterial>
         <BtnMaterial

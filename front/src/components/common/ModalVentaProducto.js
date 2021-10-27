@@ -1,17 +1,15 @@
 import React from 'react';
-import '../../styles/Modal.css';
-import Form from './Form';
-import BtnMaterial from './BtnMaterial';
+import '../../styles/ModalVentaProducto.css';
 
-const Modal = ({ isOpen, handleOpen, formulario, title, children }) => {
+const Modal = ({ isOpen, isVisible, formulario, title, children }) => {
   return (
     <div
     hidden={!isOpen}  
   >
-    <div className="modal-background" >
-      <div className="modal-card">
+    <div className="modal-back" >
+      <div className="modal-car">
         <h1 className="title">{title}</h1>
-        <hr/>
+        <hr className="line"/>
         
         {/* <Form fields={formulario}></Form> */}
         {children}
@@ -20,7 +18,7 @@ const Modal = ({ isOpen, handleOpen, formulario, title, children }) => {
           <BtnMaterial >Crear</BtnMaterial>
           <BtnMaterial onClick={handleOpen} variant='danger'>Cancelar</BtnMaterial>
         </div> */}
-       <hr/>
+       <hr className="line"/>
       </div>
      
     </div>

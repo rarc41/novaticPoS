@@ -36,7 +36,19 @@ const Usuarios = () => {
           Nuevo Usuario <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={usuarios}></Table>
+      <Table headers={headers} data={usuarios}
+      button={
+        <BtnMaterial
+          onClick={(e) => {
+            e.preventDefault();
+        
+          }}
+          variant="update"
+        > <i class="fas fa-edit"></i>
+          Actualizar
+        </BtnMaterial>
+      }>
+      </Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}

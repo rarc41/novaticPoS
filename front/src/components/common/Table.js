@@ -3,7 +3,7 @@ import React from 'react';
 import BtnMaterial from './BtnMaterial';
 import '../../styles/Table.css';
 
-const Table = ({ headers, data, onClick, type }) => {
+const Table = ({ headers, data, onClick, type, button }) => {
   console.log(data);
   return (
     <div className="table-responsive">
@@ -22,16 +22,7 @@ const Table = ({ headers, data, onClick, type }) => {
               {headers.map(field => <td>{row[field.value]}</td>)}
               <td>
                 <span class="action_btn">
-                  <BtnMaterial onClick={onClick}>
-                    <i class="fas fa-list-alt"></i>Detalle
-                  </BtnMaterial>
-                  <BtnMaterial variant="update">
-                    <i class="fas fa-edit"></i>Actualizar
-                  </BtnMaterial>
-                  <BtnMaterial variant="danger">
-                    {' '}
-                    <i class="fas fa-trash"></i> Eliminar
-                  </BtnMaterial>
+                 {button}
                 </span>
               </td>
             </tr>

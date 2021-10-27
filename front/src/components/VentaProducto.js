@@ -59,7 +59,6 @@ const VentaProducto = () => {
         <BtnMaterial onClick={handleModalOpen}>Agregar producto <i class="fas fa-plus-circle"></i></BtnMaterial>
       </ToolBar>
       <Table headers={headersTest} data={values}></Table>
-      <Modal isOpen={modalForm} handleOpen={handleModalOpen} formulario={formulario} title={"Agregar producto"}></Modal>
     </div>
   );
 };

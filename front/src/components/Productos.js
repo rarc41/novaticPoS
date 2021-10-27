@@ -6,8 +6,7 @@ import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
 import formulario from "../resources/json/producto.json";
 import CreateProductsForm from "./CreateProductsForm";
-import ProductsContext from '../context/productos/productsContext'
-
+import ProductsContext from "../context/productos/productsContext";
 
 const Productos = () => {
   const [modalForm, setModalForm] = useState(false);
@@ -16,54 +15,25 @@ const Productos = () => {
   };
 
   const productsContext = useContext(ProductsContext);
-  const {obtenerProductos, productos} = productsContext;
+  const { obtenerProductos, productos } = productsContext;
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  useEffect(() =>{
-    obtenerProductos()
-  }, [])
+  useEffect(() => {
+    obtenerProductos();
+    setFilteredProducts(productos);
+  }, []);
 
-  const products = [
-    {
-      id: 1,
-      name: "Juice - V8, Tomato",
-      descripcion: "LDR Brachytherapy of Sinuses using Palladium 103",
-      stock: 54,
-      price: 78.66,
-      img: "http://dummyimage.com/107x100.png/ff4444/ffffff",
-    },
-    {
-      id: 2,
-      name: "Appetizer - Cheese Bites",
-      descripcion: "Bypass Sup Vena Cava to L Pulm Vn w Nonaut Sub, Open",
-      stock: 344,
-      price: 16.58,
-      img: "http://dummyimage.com/105x100.png/cc0000/ffffff",
-    },
-    {
-      id: 3,
-      name: "Plasticspoonblack",
-      descripcion: "Dilate Hepatic Art w 2 Intralum Dev, Perc Endo",
-      stock: 500,
-      price: 81.67,
-      img: "http://dummyimage.com/250x100.png/ff4444/ffffff",
-    },
-    {
-      id: 4,
-      name: "Anchovy Fillets",
-      descripcion: "Reposition Left Fibula with Ext Fix, Perc Approach",
-      stock: 411,
-      price: 39.31,
-      img: "http://dummyimage.com/178x100.png/dddddd/000000",
-    },
-    {
-      id: 5,
-      name: "Gin - Gilbeys London, Dry",
-      descripcion: "Replace R Ankle Tendon w Nonaut Sub, Perc Endo",
-      stock: 331,
-      price: 10.24,
-      img: "http://dummyimage.com/238x100.png/5fa2dd/ffffff",
-    },
-  ];
+  const handleChange = (e) => {
+    e.preventDefault();
+    let list = [];
+    let search = e.target.value;
+    list = productos.filter((item) =>
+      item.description.toLowerCase().includes(search.toLowerCase()) ||
+      item.id.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredProducts(list);
+  };
+
   const headers = [
     { name: "nombre", value: "name" },
     { name: "descripcion", value: "description" },
@@ -75,11 +45,37 @@ const Productos = () => {
   return (
     <div className="Module Module-container divider-section">
       <ToolBar>
+        <div className="search-box">
+          <input
+            className="search-txt"
+            type="text"
+            placeholder="Excribe para buscar"
+            onChange={handleChange}
+          ></input>
+          <a className="search-btn" href="#">
+            <i class="fas fa-search"></i>
+          </a>
+        </div>
         <BtnMaterial onClick={handleModalOpen}>
           Nuevo Producto <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={productos}></Table>
+      <Table
+        headers={headers}
+        data={filteredProducts}
+        button={
+          <BtnMaterial
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            variant="update"
+          >
+            {" "}
+            <i class="fas fa-edit"></i>
+            Actualizar
+          </BtnMaterial>
+        }
+      ></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
