@@ -10,7 +10,9 @@ import {
   LOGIN_EXITOSO,
   LOGIN_ERROR,
   CERRAR_SESION,
-  OBTENER_USUARIOS
+  OBTENER_USUARIOS,
+  USUARIO_ACTUAL,
+  ACTUALIZAR_USUARIO
 } from "../../types";
 
 const AuthState = (props) => {
@@ -18,6 +20,7 @@ const AuthState = (props) => {
     token: localStorage.getItem("token"),
     autenticado: null,
     usuario: null,
+    usuarioActual: null,
     usuarios: [],
     mensaje: null,
   };
@@ -60,6 +63,26 @@ const AuthState = (props) => {
     }
   };
 
+  const seleccionarUsuario = (usuario) => {
+    dispatch({
+      type: USUARIO_ACTUAL,
+      payload: usuario,
+    });
+  }
+
+  // ACTUALIZAR USUARIO
+  const actualizarUsuario = async (datos) => {
+    try {
+      const response = await clienteAxios.put(`users/${datos.id}`, datos);
+      dispatch({
+        type: ACTUALIZAR_USUARIO,
+        payload: response.data.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -69,7 +92,9 @@ const AuthState = (props) => {
         usuarios:state.usuarios,
         mensaje: state.mensaje,
         registrarUsuario,
-        obtenerUsuarios
+        obtenerUsuarios,
+        seleccionarUsuario,
+        actualizarUsuario,
       }}
     >
       {props.children}
