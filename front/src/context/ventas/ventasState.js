@@ -1,13 +1,13 @@
-import React, { useReducer } from "react";
-import VentasContext from "./ventasContext";
-import VentasReducer from "./ventasReducer";
-import clienteAxios from "../../config/axios";
-import { AGREGAR_VENTA, OBTENER_VENTAS, VENTA_ACTUAL, ACTUALIZAR_VENTA,  LIMPIAR_VENTA_ACTUAL} from "../../types";
+import React, { useReducer } from 'react';
+import VentasContext from './ventasContext';
+import VentasReducer from './ventasReducer';
+import clienteAxios from '../../config/axios';
+import { AGREGAR_VENTA, OBTENER_VENTAS, VENTA_ACTUAL, ACTUALIZAR_VENTA, LIMPIAR_VENTA_ACTUAL } from '../../types';
 
 const VentasState = (props) => {
   const initialState = {
     ventas: [],
-    ventaActual: null
+    ventaActual: null,
   };
 
   const [state, dispatch] = useReducer(VentasReducer, initialState);
@@ -16,7 +16,7 @@ const VentasState = (props) => {
 
   const obtenerVentas = async () => {
     try {
-      const response = await clienteAxios.get("sales");
+      const response = await clienteAxios.get('sales');
       dispatch({
         type: OBTENER_VENTAS,
         payload: response.data.data,
@@ -28,7 +28,7 @@ const VentasState = (props) => {
 
   const agregarVenta = async (venta) => {
     try {
-      const response = await clienteAxios.post("sales", venta);
+      const response = await clienteAxios.post('sales', venta);
       dispatch({
         type: AGREGAR_VENTA,
         payload: response.data.data,
@@ -43,14 +43,14 @@ const VentasState = (props) => {
     dispatch({
       type: VENTA_ACTUAL,
       payload: venta,
-    })
-  }
+    });
+  };
 
   // actualizar venta
   const actualizarVenta = async (venta) => {
     console.log(venta);
     try {
-      const response = await clienteAxios.put(`sales/${venta.customerid}`, venta);
+      const response = await clienteAxios.put(`sales/${venta._id}`, venta);
       dispatch({
         type: ACTUALIZAR_VENTA,
         payload: response.data.data,
@@ -58,15 +58,15 @@ const VentasState = (props) => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   // limpiar venta actual
   const limpiarVentaActual = () => {
     dispatch({
       type: LIMPIAR_VENTA_ACTUAL,
-      payload: null
-    })
-  }
+      payload: null,
+    });
+  };
 
   return (
     <VentasContext.Provider
@@ -77,7 +77,7 @@ const VentasState = (props) => {
         agregarVenta,
         seleccionarVenta,
         actualizarVenta,
-        limpiarVentaActual
+        limpiarVentaActual,
       }}
     >
       {props.children}

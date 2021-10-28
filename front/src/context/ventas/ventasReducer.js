@@ -1,12 +1,6 @@
-import {
-  AGREGAR_VENTA,
-  OBTENER_VENTAS,
-  VENTA_ACTUAL,
-  ACTUALIZAR_VENTA,
-  LIMPIAR_VENTA_ACTUAL,
-} from "../../types";
+import { AGREGAR_VENTA, OBTENER_VENTAS, VENTA_ACTUAL, ACTUALIZAR_VENTA, LIMPIAR_VENTA_ACTUAL } from '../../types';
 
- const reducer= (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case OBTENER_VENTAS:
       return {
@@ -24,17 +18,13 @@ import {
       console.log(action.payload);
       return {
         ...state,
-        ventaActual: state.ventas.filter(
-          (venta) => venta.customerid=== action.payload.customerid
-        )[0],
+        ventaActual: state.ventas.filter((venta) => venta._id === action.payload._id)[0],
       };
 
     case ACTUALIZAR_VENTA:
       return {
         ...state,
-        ventas: state.ventas.map((venta) =>
-          venta.customerid === action.payload.customerid? action.payload : venta
-        ),
+        ventas: state.ventas.map((venta) => (venta._id === action.payload._id ? action.payload : venta)),
       };
 
     case LIMPIAR_VENTA_ACTUAL:
