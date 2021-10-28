@@ -9,9 +9,6 @@ const Table = ({ headers, data, onClick, type, handleEdit }) => {
   const productsContext = useContext(productContext);
   const { seleccionarProducto } = productsContext;
 
-
-
-const Table = ({ headers, data, onClick, type, button }) => {
   return (
     <div className="table-responsive">
       <table className="table-main">
