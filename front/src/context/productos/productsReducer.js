@@ -6,7 +6,7 @@ import {
   LIMPIAR_PRODUCTO_ACTUAL,
 } from "../../types";
 
-export default (state, action) => {
+ const reducer= (state, action) => {
   switch (action.type) {
     case OBTENER_PRODUCTOS:
       return {
@@ -45,3 +45,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default reducer;

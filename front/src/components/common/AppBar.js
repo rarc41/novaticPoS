@@ -17,7 +17,7 @@ const AppBar = () => {
     return (
         <div className="AppBar">
             <h3 className="nameUser">{nombreUsuario}</h3>
-            <span ><i class="fas fa-user-circle"></i></span>
+            <span ><i className="fas fa-user-circle"></i></span>
         </div>
     );
 };

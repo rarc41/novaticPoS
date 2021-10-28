@@ -4,10 +4,8 @@ import BtnMaterial from "./common/BtnMaterial";
 import Table from "./common/Table";
 import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
-import formulario from "../resources/json/producto.json";
 import CreateProductsForm from "./CreateProductsForm";
 import ProductsContext from "../context/productos/productsContext";
-import Cargando from "./common/Cargando";
 
 const Productos = () => {
   const [modalForm, setModalForm] = useState(false);
@@ -24,13 +22,13 @@ const Productos = () => {
   useEffect(() => {
     obtenerProductos();
     // setFilteredProducts(productos);
-  }, []);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (filteredProducts.length === 0) {
       setFilteredProducts(productos);
     }
-  }, [productos]);
+  }, [productos]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     setFilteredProducts(productos);
@@ -72,12 +70,12 @@ const Productos = () => {
             placeholder="Excribe para buscar"
             onChange={handleChange}
           ></input>
-          <a className="search-btn" href="#">
-            <i class="fas fa-search"></i>
+          <a className="search-btn" href="#/">
+            <i className="fas fa-search"></i>
           </a>
         </div>
         <BtnMaterial onClick={handleModalOpen}>
-          Nuevo Producto <i class="fas fa-plus-circle"></i>
+          Nuevo Producto <i className="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
       <Table

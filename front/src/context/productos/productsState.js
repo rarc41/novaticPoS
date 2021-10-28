@@ -16,7 +16,7 @@ const ProductsState = (props) => {
   const obtenerProductos = async () => {
     try {
       const response = await clienteAxios.get('products');
-      console.log(response);
+      // console.log(response);
       dispatch({
         type: OBTENER_PRODUCTOS,
         payload: response.data.data,
@@ -49,7 +49,7 @@ const ProductsState = (props) => {
 
   //   actualizar producto
     const actualizarProducto = async (producto) => {
-    console.log(producto);
+    // console.log(producto);
     try {
       const response = await clienteAxios.put(`products/${producto.id}`, producto);
       console.log(response);

@@ -7,7 +7,6 @@ import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
 import VentasContext from "../context/ventas/ventasContext";
 import CrearVentaForm from "./CrearVentaForm";
-import Cargando from "./common/Cargando";
 
 const Ventas = () => {
   const ventasContext = useContext(VentasContext);
@@ -21,17 +20,19 @@ const Ventas = () => {
 
   useEffect(() => {
     obtenerVentas();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (filteredVentas.length === 0) {
       setFilteredVentas(ventas);
     }
-  }, [ventas]);
+  }, [ventas]);// eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     setFilteredVentas(ventas);
   }, [ventas]);
+
+  
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -71,12 +72,12 @@ const Ventas = () => {
             placeholder="Excribe para buscar"
             onChange={handleChange}
           ></input>
-          <a className="search-btn" href="#">
-            <i class="fas fa-search"></i>
+          <a className="search-btn" href="#/">
+            <i className="fas fa-search"></i>
           </a>
         </div>
         <BtnMaterial onClick={handleModalOpen}>
-          Nueva Venta <i class="fas fa-plus-circle"></i>
+          Nueva Venta <i className="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
       <Table

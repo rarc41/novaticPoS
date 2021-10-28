@@ -4,10 +4,10 @@ import "../styles/Modal.css";
 import Input from "./common/Input";
 import BtnMaterial from "./common/BtnMaterial";
 import VentasContext from "../context/ventas/ventasContext";
-import ModalVentaProducto from "./common/ModalVentaProducto"
+// import ModalVentaProducto from "./common/ModalVentaProducto"
 
 import { v4 as uuidv4 } from "uuid";
-import CrearVentaProductoForm from "./CrearVentaProductoForm";
+// import CrearVentaProductoForm from "./CrearVentaProductoForm";
 
 const CrearVentaForm = ({ handleOpen }) => {
   const ventasContext = useContext(VentasContext);
@@ -66,7 +66,7 @@ const CrearVentaForm = ({ handleOpen }) => {
     obtenerVentas();
   };
 
-  const { total, date, customerid, customername, products, status, user } = venta;
+  const { total, date, customerid, customername, user } = venta;
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
@@ -111,7 +111,7 @@ const CrearVentaForm = ({ handleOpen }) => {
         onChange={handleChange}
         value={user}
       ></Input>
-       <ModalVentaProducto
+       {/* <ModalVentaProducto
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         title={"Agregar Producto"}
@@ -119,7 +119,7 @@ const CrearVentaForm = ({ handleOpen }) => {
         <CrearVentaProductoForm
         handleOpen={handleModalOpen}
         />
-      </ModalVentaProducto>
+      </ModalVentaProducto> */}
       <BtnMaterial variant="update"
         onClick={(e) => {
           e.preventDefault();

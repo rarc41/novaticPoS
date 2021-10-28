@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react';
 import '../styles/Form.css';
 import '../styles/Modal.css';
 import Input from './common/Input';
-import Select from './common/Select';
 import BtnMaterial from './common/BtnMaterial';
 import ProductsContext from '../context/productos/productsContext';
 

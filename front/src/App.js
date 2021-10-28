@@ -8,10 +8,7 @@ import VentasState from "./context/ventas/ventasState";
 
 function App() {
   const [loginIn, setLoginIn] = useState(false);
-  const handleSuccess = (response) => {
-    console.log(response);
-    setLoginIn(true);
-  };
+
   const handleFailure = () => {
     console.log("F");
   };

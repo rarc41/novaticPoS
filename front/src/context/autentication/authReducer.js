@@ -1,10 +1,10 @@
 import {
   REGISTRO_EXITOSO,
   REGISTRO_ERROR,
-  OBTENER_USUARIO,
-  LOGIN_EXITOSO,
-  LOGIN_ERROR,
-  CERRAR_SESION,
+  // OBTENER_USUARIO,
+  // LOGIN_EXITOSO,
+  // LOGIN_ERROR,
+  // CERRAR_SESION,
   OBTENER_USUARIOS,
   ACTUALIZAR_USUARIO,
   USUARIO_ACTUAL,
@@ -12,7 +12,7 @@ import {
   USUARIO_SESION,
 } from "../../types";
 
-export default (state, action) => {
+ const reducer =(state, action) => {
   switch (action.type) {
     case REGISTRO_EXITOSO:
       localStorage.setItem("token", action.payload.token);
@@ -70,3 +70,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default reducer;

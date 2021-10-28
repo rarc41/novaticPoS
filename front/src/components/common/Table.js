@@ -1,13 +1,10 @@
-import React, { useContext } from 'react';
+import React, { } from 'react';
 
 import BtnMaterial from './BtnMaterial';
 import '../../styles/Table.css';
-import productContext from '../../context/productos/productsContext';
 
 const Table = ({ headers, data, onClick, type, handleEdit, button }) => {
-  // obtenemos el context de productos
-  const productsContext = useContext(productContext);
-  const { seleccionarProducto } = productsContext;
+
 
   return (
     <div className="table-responsive">
@@ -15,7 +12,7 @@ const Table = ({ headers, data, onClick, type, handleEdit, button }) => {
         <thead className="fixed">
           <tr>
             {headers.map((field) => (
-              <th>{field.name}</th>
+              <th key={headers.indexOf(field)}>{field.name}</th>
             ))}
             <th></th>
             <th></th>
@@ -24,14 +21,14 @@ const Table = ({ headers, data, onClick, type, handleEdit, button }) => {
         </thead>
         <tbody>
           {data.map((row) => (
-            <tr key={row.id}>
+            <tr key={data.indexOf(row)}>
               {headers.map((field) => (
-                <td>{row[field.value]}</td>
+                <td key={headers.indexOf(field)}>{row[field.value]}</td>
               ))}
               <td>
-                <span class="action_btn">
+                <span className="action_btn">
                 <BtnMaterial variant="update" onClick={() => handleEdit(row)}>
-                    <i class="fas fa-edit"></i>Actualizar
+                    <i className="fas fa-edit"></i>Actualizar
                   </BtnMaterial>       
                 </span>
               </td>
