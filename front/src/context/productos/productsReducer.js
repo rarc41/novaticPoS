@@ -33,7 +33,7 @@ export default (state, action) => {
         ...state,
         productos: state.productos.map((producto) =>
           producto.id === action.payload.id ? action.payload : producto
-        ),
+      ),
       };
     
       case LIMPIAR_PRODUCTO_ACTUAL:

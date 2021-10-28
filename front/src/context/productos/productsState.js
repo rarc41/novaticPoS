@@ -48,7 +48,7 @@ const ProductsState = (props) => {
   };
 
   //   actualizar producto
-  const actualizarProducto = async (producto) => {
+    const actualizarProducto = async (producto) => {
     console.log(producto);
     try {
       const response = await clienteAxios.put(`products/${producto.id}`, producto);

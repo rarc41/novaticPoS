@@ -67,7 +67,19 @@ const Productos = () => {
           Nuevo Producto <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={filteredProducts} handleModalOpen={handleModalOpen} handleEdit={handleEdit}></Table>
+      <Table headers={headers} data={filteredProducts} handleModalOpen={handleModalOpen} handleEdit={handleEdit}
+       button={
+        <BtnMaterial
+          onClick={(e) => {
+            e.preventDefault();
+            handleEdit()
+          }}
+          variant="update"
+        > <i class="fas fa-edit"></i>
+          Actualizar
+        </BtnMaterial>
+       }
+      ></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
