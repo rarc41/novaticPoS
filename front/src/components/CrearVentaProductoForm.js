@@ -67,7 +67,7 @@ const CrearVentaProductoForm = ({ handleOpen }) => {
           onChange={handleChange}
           value={price}
         ></Input>
-        <BtnMaterial type="submit"
+        <BtnMaterial variant="update"
           onClick={(e) => {
             e.preventDefault();
             handleSubmit();
@@ -86,7 +86,7 @@ const CrearVentaProductoForm = ({ handleOpen }) => {
         </BtnMaterial>
       }>
       </Table>
-      <div>
+      <div className="group-button">
         <BtnMaterial type="submit">Aceptar</BtnMaterial>
         <BtnMaterial
           onClick={(e) => {

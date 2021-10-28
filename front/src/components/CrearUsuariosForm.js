@@ -68,7 +68,7 @@ const CrearUsuariosForm = ({handleOpen, getUsers, setActualizarTabla}) => {
         value={state}
       ></Select>
 
-      <div >
+      <div className="group-button">
         <BtnMaterial type='submit'>Crear</BtnMaterial>
         <BtnMaterial onClick={(e)=>{e.preventDefault(); handleOpen()}} variant="danger">
           Cancelar

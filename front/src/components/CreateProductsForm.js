@@ -70,7 +70,7 @@ const CreateProductsForm = ({ handleOpen }) => {
         onChange={handleChange}
         value={price}
       ></Input>
-      <div>
+      <div className="group-button">
         <BtnMaterial type="submit">Crear</BtnMaterial>
         <BtnMaterial
           onClick={(e) => {

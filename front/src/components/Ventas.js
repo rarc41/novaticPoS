@@ -5,8 +5,6 @@ import BtnMaterial from "./common/BtnMaterial";
 import Table from "./common/Table";
 import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
-import formulario from "../resources/json/venta.json";
-import VentaProducto from "./VentaProducto";
 import VentasContext from "../context/ventas/ventasContext";
 import CrearVentaForm from "./CrearVentaForm";
 
