@@ -30,7 +30,9 @@ const Table = ({ headers, data, onClick, type, handleEdit, button }) => {
               ))}
               <td>
                 <span class="action_btn">
-                 {button}           
+                <BtnMaterial variant="update" onClick={() => handleEdit(row)}>
+                    <i class="fas fa-edit"></i>Actualizar
+                  </BtnMaterial>       
                 </span>
               </td>
             </tr>
