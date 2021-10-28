@@ -7,6 +7,7 @@ import Modal from "./common/Modal";
 import formulario from "../resources/json/producto.json";
 import CreateProductsForm from "./CreateProductsForm";
 import ProductsContext from "../context/productos/productsContext";
+import Cargando from "./common/Cargando";
 
 const Productos = () => {
   const [modalForm, setModalForm] = useState(false);
@@ -21,8 +22,14 @@ const Productos = () => {
 
   useEffect(() => {
     obtenerProductos();
-    setFilteredProducts(productos);
+    // setFilteredProducts(productos);
   }, []);
+
+  useEffect(() => {
+    if (filteredProducts.length === 0) {
+      setFilteredProducts(productos);
+    }
+  }, [productos]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -67,7 +74,8 @@ const Productos = () => {
           Nuevo Producto <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={filteredProducts} handleModalOpen={handleModalOpen} handleEdit={handleEdit}></Table>
+      {filteredProducts.length > 0 ? (<Table headers={headers} data={filteredProducts} handleModalOpen={handleModalOpen} handleEdit={handleEdit}></Table>):(<Cargando></Cargando>)}
+      
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}

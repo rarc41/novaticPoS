@@ -7,31 +7,36 @@ import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
 import VentasContext from "../context/ventas/ventasContext";
 import CrearVentaForm from "./CrearVentaForm";
+import Cargando from "./common/Cargando";
 
 const Ventas = () => {
   const ventasContext = useContext(VentasContext);
   const { obtenerVentas, ventas } = ventasContext;
   const [filteredVentas, setFilteredVentas] = useState([]);
 
-
   const [modalForm, setModalForm] = useState(false);
   const handleModalOpen = () => {
     setModalForm(!modalForm);
   };
 
+  useEffect(() => {
+    obtenerVentas();
+  }, []);
 
   useEffect(() => {
-    obtenerVentas()
-    setFilteredVentas(ventas)
-  }, [])
+    if (filteredVentas.length === 0) {
+      setFilteredVentas(ventas);
+    }
+  }, [ventas]);
 
   const handleChange = (e) => {
     e.preventDefault();
     let list = [];
     let search = e.target.value;
-    list = ventas.filter((item) =>
-      item.customerid.toLowerCase().includes(search.toLowerCase()) ||
-      item.customername.toLowerCase().includes(search.toLowerCase())
+    list = ventas.filter(
+      (item) =>
+        item.customerid.toLowerCase().includes(search.toLowerCase()) ||
+        item.customername.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredVentas(list);
   };
@@ -49,7 +54,7 @@ const Ventas = () => {
   return (
     <div className="Module Module-container divider-section">
       <ToolBar>
-      <div className="search-box">
+        <div className="search-box">
           <input
             className="search-txt"
             type="text"
@@ -64,27 +69,30 @@ const Ventas = () => {
           Nueva Venta <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={filteredVentas} type={"ventas"}
-      button={
-        <BtnMaterial
-          onClick={(e) => {
-            e.preventDefault();
-        
-          }}
-          variant="update"
-        > <i class="fas fa-edit"></i>
-          Actualizar
-        </BtnMaterial>
-      }>
-      </Table>
+      <Table
+        headers={headers}
+        data={filteredVentas}
+        type={"ventas"}
+        button={
+          <BtnMaterial
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            variant="update"
+          >
+            {" "}
+            <i class="fas fa-edit"></i>
+            Actualizar
+          </BtnMaterial>
+        }
+      ></Table>{" "}
+      */
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         title={"Crear Venta"}
       >
-        <CrearVentaForm
-        handleOpen={handleModalOpen}
-        />
+        <CrearVentaForm handleOpen={handleModalOpen} />
       </Modal>
     </div>
   );
