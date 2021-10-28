@@ -13,7 +13,8 @@ import {
   OBTENER_USUARIOS,
   USUARIO_ACTUAL,
   ACTUALIZAR_USUARIO,
-  LIMPIAR_USUARIO_ACTUAL
+  LIMPIAR_USUARIO_ACTUAL,
+  USUARIO_SESION
 } from "../../types";
 
 const AuthState = (props) => {
@@ -22,6 +23,7 @@ const AuthState = (props) => {
     autenticado: null,
     usuario: null,
     usuarioActual: null,
+    usuarioEnSesion: null,
     usuarios: [],
     mensaje: null,
   };
@@ -93,12 +95,21 @@ const AuthState = (props) => {
     });
   }
 
+  // set usuario en session
+  const setUsuarioEnSesion = (usuario) => {
+    dispatch({
+      type: USUARIO_SESION,
+      payload: usuario,
+    });
+  }
+
   return (
     <AuthContext.Provider
       value={{
         token: state.token,
         autenticado: state.autenticado,
         usuario: state.usuario,
+        usuarioEnSesion: state.usuarioEnSesion,
         usuarios:state.usuarios,
         mensaje: state.mensaje,
         registrarUsuario,
@@ -106,6 +117,7 @@ const AuthState = (props) => {
         seleccionarUsuario,
         actualizarUsuario,
         limpiarUsuarioActual,
+        setUsuarioEnSesion,
       }}
     >
       {props.children}

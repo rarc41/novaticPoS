@@ -26,7 +26,7 @@ function App() {
                   <Redirect to="/inicio" />
                 ) : (
                   <Login
-                    handleSuccess={handleSuccess}
+                    setLoginIn={setLoginIn}
                     handleFailure={handleFailure}
                   />
                 )}

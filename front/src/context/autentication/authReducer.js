@@ -8,14 +8,15 @@ import {
   OBTENER_USUARIOS,
   ACTUALIZAR_USUARIO,
   USUARIO_ACTUAL,
-  LIMPIAR_USUARIO_ACTUAL
+  LIMPIAR_USUARIO_ACTUAL,
+  USUARIO_SESION,
 } from "../../types";
 
 export default (state, action) => {
   switch (action.type) {
     case REGISTRO_EXITOSO:
       localStorage.setItem("token", action.payload.token);
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         autenticado: true,
@@ -36,25 +37,34 @@ export default (state, action) => {
         usuarios: action.payload,
       };
 
-      case USUARIO_ACTUAL:
+    case USUARIO_ACTUAL:
       return {
         ...state,
-        usuario: state.usuarios.filter(usuario => usuario.id === action.payload.id)[0]
+        usuario: state.usuarios.filter(
+          (usuario) => usuario.id === action.payload.id
+        )[0],
+      };
 
-      }
+    case ACTUALIZAR_USUARIO: {
+      return {
+        ...state,
+        usuarios: state.usuarios.map((usuario) =>
+          usuario.id === action.payload.id ? action.payload : usuario
+        ),
+      };
+    }
 
-      case ACTUALIZAR_USUARIO:{
-        return {
-          ...state,
-          usuarios: state.usuarios.map(usuario => usuario.id === action.payload.id ? action.payload : usuario)
-        }
-      }
-      case LIMPIAR_USUARIO_ACTUAL:{
-        return {
-          ...state,
-          usuario: action.payload
-        }
-      }
+    case USUARIO_SESION:
+      return {
+        ...state,
+        usuarioEnSesion: action.payload,
+      };
+
+    case LIMPIAR_USUARIO_ACTUAL:
+      return {
+        ...state,
+        usuario: action.payload,
+      };
 
     default:
       return state;
