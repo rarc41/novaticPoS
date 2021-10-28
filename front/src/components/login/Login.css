@@ -31,10 +31,10 @@ h1{
 
 .login {
     margin: auto;
-    margin-top: 80px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 500px;
 
 }
 
@@ -94,6 +94,7 @@ input:focus {
     width: 325px;
     height: 45px;
     margin-top: 10px;
+    margin-left: 85px;
     border-radius: 15px;
     background-color: white;
     font-family: 'Franklin Gothic Medium';

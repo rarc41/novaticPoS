@@ -4,7 +4,7 @@ import '../../styles/Button.css';
 const Button = ({label, style, name, icon, onClick}) => {
   return (
     <div className="buttonBox" style={style}>
-      <button onClick={onClick} name={name} class={icon}>
+      <button onClick={onClick} name={name} className={icon}>
         <span>{label}</span>
       </button>
     </div>

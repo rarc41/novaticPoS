@@ -19,18 +19,18 @@ const Navbar = ({changeSection}) => {
       <div className={`navigation ${active?'active':''}`}>
         <ul>
           {options.map((option) => (
-            <li onClick={()=>changeSection(option.name)}>
-              <a href="#">
-                <span class="icon">
-                  <i class={option.icon}></i>
+            <li onClick={()=>changeSection(option.name)} key={options.indexOf(option)}>
+              <a href="#/">
+                <span className="icon">
+                  <i className={option.icon}></i>
                 </span>
-                <span class="title">{option.name}</span>
+                <span className="title">{option.name}</span>
               </a>
             </li>
           ))}
         </ul>
       </div>
-      <div class={`toggle ${active?'active':''}`} onClick={handleClickToggle}></div>
+      <div className={`toggle ${active?'active':''}`} onClick={handleClickToggle}></div>
     </div>
   );
 };

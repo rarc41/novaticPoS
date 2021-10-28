@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import "../styles/Button.css";
-import Table from "./common/Table";
-import ToolBar from "./common/ToolBar";
-import BtnMaterial from "./common/BtnMaterial";
-import formulario from "../resources/json/usuario.json";
-import Modal from "./common/Modal";
+import React, { useState, useEffect, useContext } from 'react';
+import '../styles/Button.css';
+import Table from './common/Table';
+import ToolBar from './common/ToolBar';
+import BtnMaterial from './common/BtnMaterial';
+
+import Modal from './common/Modal';
+import CrearUsuariosForm from './CrearUsuariosForm';
+import AuthContext from '../context/autentication/authContext';
 
 const Usuarios = () => {
   const [modalForm, setModalForm] = useState(false);
@@ -12,37 +14,41 @@ const Usuarios = () => {
     setModalForm(!modalForm);
   };
 
+  const authContext = useContext(AuthContext);
+  const { usuarios, obtenerUsuarios, seleccionarUsuario, usuario } = authContext;
+
+  useEffect(() => {
+    obtenerUsuarios();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const headers = [
-    { name: "Usuario", value: "user" },
-    { name: "Rol", value: "role" },
-    { name: "Estado", value: "state" },
-    { name: " ", value: "button" },
+    { name: 'ID', value: 'id' },
+    { name: 'Usuario', value: 'user' },
+    { name: 'Rol', value: 'role' },
+    { name: 'Estado', value: 'state' },
   ];
 
-  const headers_test = ["usuario", "rol", "estado"];
-
-  const values = [
-    { user: "Alejandra", role: "Administrador", state: "pendiente" },
-    { user: "Elias", role: "Vendedor", state: "autorizado" },
-    { user: "Robin", role: "Administrador", state: "no autorizado" },
-    { user: "Cristian", role: "Vendedor", state: "pendiente" },
-    { user: "Sara", role: "Administrador", state: "autorizado" },
-  ];
+  const handleEdit = async (data) => {
+    await seleccionarUsuario(data);
+    handleModalOpen();
+  }
 
   return (
     <div className="Module Module-container divider-section">
       <ToolBar>
         <BtnMaterial onClick={handleModalOpen}>
-          Nuevo Usuario <i class="fas fa-plus-circle"></i>
+          Nuevo Usuario <i className="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers_test} data={values}></Table>
+      <Table headers={headers} data={usuarios} handleEdit={handleEdit}></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
-        formulario={formulario}
-        title={"Crear Usuario"}
-      ></Modal>
+        // formulario={formulario}
+        title={usuario? 'Editar Usuario' : 'Crear Usuario'}
+      >
+        <CrearUsuariosForm handleOpen={handleModalOpen}></CrearUsuariosForm>
+      </Modal>
     </div>
   );
 };

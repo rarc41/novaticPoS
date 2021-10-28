@@ -1,0 +1,52 @@
+:root {
+    --black: #000015;
+    --dark-blue: #212c4d;
+    --neutral-blue: #525993;
+    --light-blue: #938be3;
+    --lyla: #e6c3ff;
+  }
+  
+  .modal-back {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .modal-car {
+    margin: 0 auto;
+    display: block;
+    margin-top: 3rem;
+    width: 100rem;
+    height: 45rem;
+    background-color: white;
+    border-radius: 1rem;
+    align-items: center;
+    align-content: center;
+    box-shadow: 2px 2px 10px #666;
+  }
+  
+  .line1{
+    width: 90rem;
+    margin-top: 1rem;
+  }
+  
+  .line2{
+    width: 90rem;
+  }
+
+  
+  .modal-card h1{
+    margin-top: 2rem;
+    margin-left: 3rem;
+    text-align: left;
+    font-size: 3rem ;
+    color: #000015;
+  }
+
+  .group-button{
+    margin-top: 20rem;
+    margin-left: 70rem;
+  }
+  

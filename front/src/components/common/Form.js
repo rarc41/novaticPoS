@@ -4,7 +4,7 @@ import Input from './Input';
 import Select from './Select';
 
 const Form = ({ fields }) => {
-  return <div class="formulario">{fields.map(selectInput)}</div>;
+  return <div className="formulario">{fields.map(selectInput)}</div>;
 };
 
 function selectInput(data) {

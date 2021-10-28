@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--neutral-blue);
+}
+
+.container {
+    position: relative;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    border: solid 5px var(--lyla);
+    
+}

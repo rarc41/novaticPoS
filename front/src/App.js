@@ -1,17 +1,40 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Main from './components/Main';
-import Login from './components/login/Login';
+import React, { useState } from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Main from "./components/Main";
+import Login from "./components/login/Login";
+import AuthState from "./context/autentication/authState";
+import ProductsState from "./context/productos/productsState";
+import VentasState from "./context/ventas/ventasState";
 
 function App() {
+  const [loginIn, setLoginIn] = useState(false);
+
+  const handleFailure = () => {
+    console.log("F");
+  };
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/login" component={Login}></Route>
-        <Route exact path="/" component={Main}></Route>
-        <Route exact path="/login" component={Login}></Route>
-      </Switch>
-    </BrowserRouter>
+    <AuthState>
+      <ProductsState>
+        <VentasState>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/">
+                {loginIn ? (
+                  <Redirect to="/inicio" />
+                ) : (
+                  <Login
+                    setLoginIn={setLoginIn}
+                    handleFailure={handleFailure}
+                  />
+                )}
+              </Route>
+              <Route exact path="/inicio" component={Main}></Route>
+              <Route exact path="/" component={Login}></Route>
+            </Switch>
+          </BrowserRouter>
+        </VentasState>
+      </ProductsState>
+    </AuthState>
   );
 }
 
