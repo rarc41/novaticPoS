@@ -16,7 +16,8 @@ const Productos = () => {
   };
 
   const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, productos, seleccionarProducto, productoActual } = productsContext;
+  const { obtenerProductos, productos, seleccionarProducto, productoActual } =
+    productsContext;
 
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -31,16 +32,21 @@ const Productos = () => {
     }
   }, [productos]);
 
+  useEffect(() => {
+    setFilteredProducts(productos);
+  }, [productos]);
+
   const handleChange = (e) => {
     e.preventDefault();
     let list = [];
     let search = e.target.value;
-    list = productos.filter((item) =>
-      item.description.toLowerCase().includes(search.toLowerCase()) ||
-      item.id.toLowerCase().includes(search.toLowerCase())
+    list = productos.filter(
+      (item) =>
+        item.description.toLowerCase().includes(search.toLowerCase()) ||
+        item.id.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredProducts(list);
-  }
+  };
 
   const handleEdit = async (data) => {
     await seleccionarProducto(data);
@@ -48,12 +54,12 @@ const Productos = () => {
   };
 
   const headers = [
-    { name: 'ID', value: 'id' },
-    { name: 'nombre', value: 'name' },
-    { name: 'descripcion', value: 'description' },
-    { name: 'stock', value: 'stock' },
-    { name: 'Precio', value: 'price' },
-    '',
+    { name: "ID", value: "id" },
+    { name: "nombre", value: "name" },
+    { name: "descripcion", value: "description" },
+    { name: "stock", value: "stock" },
+    { name: "Precio", value: "price" },
+    "",
   ];
 
   return (
@@ -74,13 +80,17 @@ const Productos = () => {
           Nuevo Producto <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      {filteredProducts.length > 0 ? (<Table headers={headers} data={filteredProducts} handleModalOpen={handleModalOpen} handleEdit={handleEdit}></Table>):(<Cargando></Cargando>)}
-      
+      <Table
+        headers={headers}
+        data={filteredProducts}
+        handleModalOpen={handleModalOpen}
+        handleEdit={handleEdit}
+      ></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         // formulario={formulario}
-        title={productoActual?'Editar Producto' : 'Crear Producto'}
+        title={productoActual ? "Editar Producto" : "Crear Producto"}
       >
         <CreateProductsForm handleOpen={handleModalOpen} />
       </Modal>

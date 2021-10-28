@@ -11,7 +11,7 @@ import Cargando from "./common/Cargando";
 
 const Ventas = () => {
   const ventasContext = useContext(VentasContext);
-  const { obtenerVentas, ventas } = ventasContext;
+  const { obtenerVentas, ventas, seleccionarVenta, ventaActual } = ventasContext;
   const [filteredVentas, setFilteredVentas] = useState([]);
 
   const [modalForm, setModalForm] = useState(false);
@@ -27,6 +27,10 @@ const Ventas = () => {
     if (filteredVentas.length === 0) {
       setFilteredVentas(ventas);
     }
+  }, [ventas]);
+
+  useEffect(() => {
+    setFilteredVentas(ventas);
   }, [ventas]);
 
   const handleChange = (e) => {
@@ -51,6 +55,12 @@ const Ventas = () => {
     { name: " ", value: "button" },
   ];
 
+  const handleEdit = async (data) => {
+    console.log(data);
+    await seleccionarVenta(data);
+    handleModalOpen();
+  };
+
   return (
     <div className="Module Module-container divider-section">
       <ToolBar>
@@ -72,25 +82,13 @@ const Ventas = () => {
       <Table
         headers={headers}
         data={filteredVentas}
-        type={"ventas"}
-        button={
-          <BtnMaterial
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-            variant="update"
-          >
-            {" "}
-            <i class="fas fa-edit"></i>
-            Actualizar
-          </BtnMaterial>
-        }
-      ></Table>{" "}
-      */
+        handleModalOpen={handleModalOpen}
+        handleEdit={handleEdit}
+      ></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
-        title={"Crear Venta"}
+        title={ventaActual?'Editar Producto' : 'Crear Producto'}
       >
         <CrearVentaForm handleOpen={handleModalOpen} />
       </Modal>
