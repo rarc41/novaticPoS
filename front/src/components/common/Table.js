@@ -4,7 +4,7 @@ import BtnMaterial from './BtnMaterial';
 import '../../styles/Table.css';
 import productContext from '../../context/productos/productsContext';
 
-const Table = ({ headers, data, onClick, type, handleEdit }) => {
+const Table = ({ headers, data, onClick, type, handleEdit, button }) => {
   // obtenemos el context de productos
   const productsContext = useContext(productContext);
   const { seleccionarProducto } = productsContext;

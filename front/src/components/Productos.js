@@ -13,7 +13,6 @@ const Productos = () => {
   const handleModalOpen = () => {
     setModalForm(!modalForm);
   };
-}
 
   const productsContext = useContext(ProductsContext);
   const { obtenerProductos, productos, seleccionarProducto, productoActual } = productsContext;
@@ -34,6 +33,7 @@ const Productos = () => {
       item.id.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredProducts(list);
+  }
 
   const handleEdit = async (data) => {
     await seleccionarProducto(data);
