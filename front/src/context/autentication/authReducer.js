@@ -6,6 +6,9 @@ import {
   LOGIN_ERROR,
   CERRAR_SESION,
   OBTENER_USUARIOS,
+  ACTUALIZAR_USUARIO,
+  USUARIO_ACTUAL,
+  LIMPIAR_USUARIO_ACTUAL
 } from "../../types";
 
 export default (state, action) => {
@@ -32,6 +35,26 @@ export default (state, action) => {
         ...state,
         usuarios: action.payload,
       };
+
+      case USUARIO_ACTUAL:
+      return {
+        ...state,
+        usuario: state.usuarios.filter(usuario => usuario.id === action.payload.id)[0]
+
+      }
+
+      case ACTUALIZAR_USUARIO:{
+        return {
+          ...state,
+          usuarios: state.usuarios.map(usuario => usuario.id === action.payload.id ? action.payload : usuario)
+        }
+      }
+      case LIMPIAR_USUARIO_ACTUAL:{
+        return {
+          ...state,
+          usuario: action.payload
+        }
+      }
 
     default:
       return state;

@@ -13,9 +13,11 @@ const Productos = () => {
   const handleModalOpen = () => {
     setModalForm(!modalForm);
   };
+}
 
   const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, productos } = productsContext;
+  const { obtenerProductos, productos, seleccionarProducto, productoActual } = productsContext;
+
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
@@ -32,14 +34,19 @@ const Productos = () => {
       item.id.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredProducts(list);
+
+  const handleEdit = async (data) => {
+    await seleccionarProducto(data);
+    handleModalOpen();
   };
 
   const headers = [
-    { name: "nombre", value: "name" },
-    { name: "descripcion", value: "description" },
-    { name: "stock", value: "stock" },
-    { name: "Precio", value: "price" },
-    "",
+    { name: 'ID', value: 'id' },
+    { name: 'nombre', value: 'name' },
+    { name: 'descripcion', value: 'description' },
+    { name: 'stock', value: 'stock' },
+    { name: 'Precio', value: 'price' },
+    '',
   ];
 
   return (
@@ -60,27 +67,12 @@ const Productos = () => {
           Nuevo Producto <i class="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table
-        headers={headers}
-        data={filteredProducts}
-        button={
-          <BtnMaterial
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-            variant="update"
-          >
-            {" "}
-            <i class="fas fa-edit"></i>
-            Actualizar
-          </BtnMaterial>
-        }
-      ></Table>
+      <Table headers={headers} data={filteredProducts} handleModalOpen={handleModalOpen} handleEdit={handleEdit}></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         // formulario={formulario}
-        title={"Crear Producto"}
+        title={productoActual?'Editar Producto' : 'Crear Producto'}
       >
         <CreateProductsForm handleOpen={handleModalOpen} />
       </Modal>

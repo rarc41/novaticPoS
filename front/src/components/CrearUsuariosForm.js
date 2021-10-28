@@ -1,21 +1,37 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Modal from "./common/Modal";
 import "../styles/Form.css";
-import '../styles/Modal.css';
+import "../styles/Modal.css";
 import Input from "./common/Input";
 import Select from "./common/Select";
 import BtnMaterial from "./common/BtnMaterial";
 import AuthContext from "../context/autentication/authContext";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-
-const CrearUsuariosForm = ({handleOpen, getUsers, setActualizarTabla}) => {
+const CrearUsuariosForm = ({ handleOpen }) => {
+  const authContext = useContext(AuthContext);
+  const { registrarUsuario, obtenerUsuarios, actualizarUsuario, usuario, limpiarUsuarioActual } =
+    authContext;
   const [userInfo, setUserInfo] = useState({
+    id: "",
     user: "",
     role: "",
     state: "",
-    id: uuidv4(),
   });
+
+  // efecto para editar usuario
+  useEffect(() => {
+    if (usuario) {
+      setUserInfo(usuario);
+    } else {
+      setUserInfo({
+        id: "",
+        user: "",
+        role: "",
+        state: "",
+      });
+    }
+  }, [usuario]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -25,24 +41,31 @@ const CrearUsuariosForm = ({handleOpen, getUsers, setActualizarTabla}) => {
     });
   };
 
-  const authContext = useContext(AuthContext);
-  const { registrarUsuario, obtenerUsuarios } = authContext;
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUserInfo({
-      ...userInfo,
-      id: uuidv4(),
-    });
-    registrarUsuario(userInfo);
-    handleOpen()
-    obtenerUsuarios()
-  }
+    if (usuario === null) {
+      registrarUsuario(userInfo);
+    } else {
+      actualizarUsuario(userInfo);
+    }
+    handleOpen();
+    obtenerUsuarios();
+  };
 
-  const { user, role, state } = userInfo;
+  const { id, user, role, state } = userInfo;
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
+      <Input
+        label="Identificador"
+        name="id"
+        required={true}
+        type="text"
+        onChange={handleChange}
+        value={id}
+        // disabled={usuario !== null? true : false}
+        hidden={usuario !== null ? true : false}
+      ></Input>
       <Input
         label="Nombre de usuario"
         name="user"
@@ -68,9 +91,16 @@ const CrearUsuariosForm = ({handleOpen, getUsers, setActualizarTabla}) => {
         value={state}
       ></Select>
 
-      <div className="group-button">
-        <BtnMaterial type='submit'>Crear</BtnMaterial>
-        <BtnMaterial onClick={(e)=>{e.preventDefault(); handleOpen()}} variant="danger">
+      <div>
+        <BtnMaterial type="submit">{usuario ? 'Editar': 'Crear'}</BtnMaterial>
+        <BtnMaterial
+          onClick={(e) => {
+            e.preventDefault();
+            handleOpen();
+            limpiarUsuarioActual();
+          }}
+          variant="danger"
+        >
           Cancelar
         </BtnMaterial>
       </div>
