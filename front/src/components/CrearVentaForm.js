@@ -1,17 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/Form.css";
 import "../styles/Modal.css";
 import Input from "./common/Input";
 import BtnMaterial from "./common/BtnMaterial";
 import VentasContext from "../context/ventas/ventasContext";
-import ModalVentaProducto from "./common/ModalVentaProducto"
+// import ModalVentaProducto from "./common/ModalVentaProducto"
 
 import { v4 as uuidv4 } from "uuid";
-import CrearVentaProductoForm from "./CrearVentaProductoForm";
+// import CrearVentaProductoForm from "./CrearVentaProductoForm";
 
 const CrearVentaForm = ({ handleOpen }) => {
   const ventasContext = useContext(VentasContext);
-  const { obtenerVentas, agregarVenta } = ventasContext;
+  const { obtenerVentas, agregarVenta, ventaActual, actualizarVenta, limpiarVentaActual } = ventasContext;
 
   const [modalForm, setModalForm] = useState(false);
   const handleModalOpen = () => {
@@ -29,6 +29,24 @@ const CrearVentaForm = ({ handleOpen }) => {
     user: "",
   });
 
+  // efecto para editar el estado de la venta
+  useEffect(() => {
+    if (ventaActual) {
+      setVenta(ventaActual);
+    } else {
+      setVenta({
+        id: uuidv4(),
+        total: "",
+        date: "",
+        customername: "",
+        customerid: "",
+        products: [],
+        status: "entregada",
+        user: "",
+      });
+    }
+  }, [ventaActual]);
+
   const handleChange = (e) => {
     e.preventDefault();
     setVenta({
@@ -39,12 +57,16 @@ const CrearVentaForm = ({ handleOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    agregarVenta(venta);
+    if(ventaActual===null) {
+      agregarVenta(venta);
+    } else {
+      actualizarVenta(venta);
+    }
     handleOpen();
     obtenerVentas();
   };
 
-  const { total, date, customerid, customername, products, status, user } = venta;
+  const { total, date, customerid, customername, user } = venta;
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
@@ -68,7 +90,7 @@ const CrearVentaForm = ({ handleOpen }) => {
         label="Identificación del Cliente"
         name="customerid"
         required={true}
-        type="number"
+        type="text"
         onChange={handleChange}
         value={customerid}
       ></Input>
@@ -89,7 +111,7 @@ const CrearVentaForm = ({ handleOpen }) => {
         onChange={handleChange}
         value={user}
       ></Input>
-       <ModalVentaProducto
+       {/* <ModalVentaProducto
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         title={"Agregar Producto"}
@@ -97,7 +119,7 @@ const CrearVentaForm = ({ handleOpen }) => {
         <CrearVentaProductoForm
         handleOpen={handleModalOpen}
         />
-      </ModalVentaProducto>
+      </ModalVentaProducto> */}
       <BtnMaterial variant="update"
         onClick={(e) => {
           e.preventDefault();
@@ -105,11 +127,12 @@ const CrearVentaForm = ({ handleOpen }) => {
         }}
       >Agregar Producto</BtnMaterial>
       <div>
-        <BtnMaterial type="submit">Crear</BtnMaterial>
+        <BtnMaterial type="submit">{ventaActual ?'Editar' : 'Crear'}</BtnMaterial>
         <BtnMaterial
           onClick={(e) => {
             e.preventDefault();
             handleOpen();
+            limpiarVentaActual();
           }}
           variant="danger"
         >

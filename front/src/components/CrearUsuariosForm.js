@@ -1,12 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import Modal from "./common/Modal";
 import "../styles/Form.css";
 import "../styles/Modal.css";
 import Input from "./common/Input";
 import Select from "./common/Select";
 import BtnMaterial from "./common/BtnMaterial";
 import AuthContext from "../context/autentication/authContext";
-import { v4 as uuidv4 } from "uuid";
 
 const CrearUsuariosForm = ({ handleOpen }) => {
   const authContext = useContext(AuthContext);

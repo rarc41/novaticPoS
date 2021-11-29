@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../styles/Modal.css';
-import Form from './Form';
-import BtnMaterial from './BtnMaterial';
+
 
 const Modal = ({ isOpen, handleOpen, formulario, title, children }) => {
   return (

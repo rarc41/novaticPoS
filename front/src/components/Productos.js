@@ -4,7 +4,6 @@ import BtnMaterial from "./common/BtnMaterial";
 import Table from "./common/Table";
 import ToolBar from "./common/ToolBar";
 import Modal from "./common/Modal";
-import formulario from "../resources/json/producto.json";
 import CreateProductsForm from "./CreateProductsForm";
 import ProductsContext from "../context/productos/productsContext";
 
@@ -15,25 +14,37 @@ const Productos = () => {
   };
 
   const productsContext = useContext(ProductsContext);
-  const { obtenerProductos, productos, seleccionarProducto, productoActual } = productsContext;
+  const { obtenerProductos, productos, seleccionarProducto, productoActual } =
+    productsContext;
 
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     obtenerProductos();
+    // setFilteredProducts(productos);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (filteredProducts.length === 0) {
+      setFilteredProducts(productos);
+    }
+  }, [productos]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
     setFilteredProducts(productos);
-  }, []);
+  }, [productos]);
 
   const handleChange = (e) => {
     e.preventDefault();
     let list = [];
     let search = e.target.value;
-    list = productos.filter((item) =>
-      item.description.toLowerCase().includes(search.toLowerCase()) ||
-      item.id.toLowerCase().includes(search.toLowerCase())
+    list = productos.filter(
+      (item) =>
+        item.description.toLowerCase().includes(search.toLowerCase()) ||
+        item.id.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredProducts(list);
-  }
+  };
 
   const handleEdit = async (data) => {
     await seleccionarProducto(data);
@@ -41,12 +52,12 @@ const Productos = () => {
   };
 
   const headers = [
-    { name: 'ID', value: 'id' },
-    { name: 'nombre', value: 'name' },
-    { name: 'descripcion', value: 'description' },
-    { name: 'stock', value: 'stock' },
-    { name: 'Precio', value: 'price' },
-    '',
+    { name: "ID", value: "id" },
+    { name: "nombre", value: "name" },
+    { name: "descripcion", value: "description" },
+    { name: "stock", value: "stock" },
+    { name: "Precio", value: "price" },
+    "",
   ];
 
   return (
@@ -59,32 +70,25 @@ const Productos = () => {
             placeholder="Excribe para buscar"
             onChange={handleChange}
           ></input>
-          <a className="search-btn" href="#">
-            <i class="fas fa-search"></i>
+          <a className="search-btn" href="#/">
+            <i className="fas fa-search"></i>
           </a>
         </div>
         <BtnMaterial onClick={handleModalOpen}>
-          Nuevo Producto <i class="fas fa-plus-circle"></i>
+          Nuevo Producto <i className="fas fa-plus-circle"></i>
         </BtnMaterial>
       </ToolBar>
-      <Table headers={headers} data={filteredProducts} handleModalOpen={handleModalOpen} handleEdit={handleEdit}
-       button={
-        <BtnMaterial
-          onClick={(e) => {
-            e.preventDefault();
-            handleEdit(productos)
-          }}
-          variant="update"
-        > <i class="fas fa-edit"></i>
-          Actualizar
-        </BtnMaterial>
-       }
+      <Table
+        headers={headers}
+        data={filteredProducts}
+        handleModalOpen={handleModalOpen}
+        handleEdit={handleEdit}
       ></Table>
       <Modal
         isOpen={modalForm}
         handleOpen={handleModalOpen}
         // formulario={formulario}
-        title={productoActual?'Editar Producto' : 'Crear Producto'}
+        title={productoActual ? "Editar Producto" : "Crear Producto"}
       >
         <CreateProductsForm handleOpen={handleModalOpen} />
       </Modal>

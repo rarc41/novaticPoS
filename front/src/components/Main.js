@@ -10,7 +10,7 @@ import Cargando from './common/Cargando'
 
 const Main = () => {
   const [section, setSection] = useState('productos');
-  const [cargando, setCargando] = useState(true);
+  const [cargando, setCargando] = useState(false);
 
   const authContext = useContext(AuthContext);
   const {usuarioEnSesion} = authContext;

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "../styles/Form.css";
 import "../styles/ModalVentaProducto.css";
 import Input from "./common/Input";
@@ -81,7 +81,7 @@ const CrearVentaProductoForm = ({ handleOpen }) => {
             
           }}
           variant="danger"
-        > <i class="fas fa-trash"></i>
+        > <i className="fas fa-trash"></i>
           Eliminar
         </BtnMaterial>
       }>
