@@ -72,7 +72,7 @@ const Productos = () => {
         <BtnMaterial
           onClick={(e) => {
             e.preventDefault();
-            handleEdit()
+            handleEdit(productos)
           }}
           variant="update"
         > <i class="fas fa-edit"></i>
